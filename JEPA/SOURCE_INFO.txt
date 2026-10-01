@@ -1,0 +1,3 @@
+Repository: https://github.com/facebookresearch/ijepa
+Commit: 52c1ae95d05f743e000e8f10a1f3a79b10cff048
+Date: 2026-10-01T18:10:07+09:00

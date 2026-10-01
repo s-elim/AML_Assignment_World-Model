@@ -1,0 +1,3 @@
+Repository: https://github.com/facebookresearch/vjepa2
+Commit: 204698b45b3712590f06245fbfba32d3be539812
+Date: 2026-10-01T18:10:07+09:00
