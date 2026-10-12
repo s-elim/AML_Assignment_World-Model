@@ -1,0 +1,8 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+vjepa2_ac {"mean": 511.40881637111306, "std": 3.0841401101437165} 4091.06982421875 {'encoder_frozen': 303885312, 'trained': 11444224}
+dino_wm {"mean": 928.8254616782069, "std": 0.333528454944307} 1638.56005859375 {'encoder_frozen': 21628800, 'trained': 11272368}
+tdmpc2 {"mean": 19.209148385562003, "std": 0.5890764738623065} 48.9794921875 {'trained': 5574540}
+bc_resnet18 {"mean": 1.796140622658034, "std": 0.0470332161791922} 79.27001953125 {'trained': 11758798}

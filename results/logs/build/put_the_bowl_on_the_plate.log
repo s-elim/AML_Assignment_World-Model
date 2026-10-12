@@ -1,0 +1,56 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+put_the_bowl_on_the_plate demo 0 T=91 success=True 21s
+put_the_bowl_on_the_plate demo 1 T=89 success=True 40s
+put_the_bowl_on_the_plate demo 2 T=93 success=True 63s
+put_the_bowl_on_the_plate demo 3 T=95 success=True 84s
+put_the_bowl_on_the_plate demo 4 T=81 success=True 104s
+put_the_bowl_on_the_plate demo 5 T=90 success=True 126s
+put_the_bowl_on_the_plate demo 6 T=106 success=True 147s
+put_the_bowl_on_the_plate demo 7 T=93 success=True 165s
+put_the_bowl_on_the_plate demo 8 T=85 success=True 182s
+put_the_bowl_on_the_plate demo 9 T=91 success=True 203s
+put_the_bowl_on_the_plate demo 10 T=113 success=True 229s
+put_the_bowl_on_the_plate demo 11 T=86 success=True 249s
+put_the_bowl_on_the_plate demo 12 T=89 success=True 272s
+put_the_bowl_on_the_plate demo 13 T=99 success=True 295s
+put_the_bowl_on_the_plate demo 14 T=88 success=True 316s
+put_the_bowl_on_the_plate demo 15 T=85 success=True 337s
+put_the_bowl_on_the_plate demo 16 T=96 success=True 362s
+put_the_bowl_on_the_plate demo 17 T=89 success=True 385s
+put_the_bowl_on_the_plate demo 18 T=94 success=True 409s
+put_the_bowl_on_the_plate demo 19 T=96 success=True 435s
+put_the_bowl_on_the_plate demo 20 T=96 success=True 461s
+put_the_bowl_on_the_plate demo 21 T=107 success=True 488s
+put_the_bowl_on_the_plate demo 22 T=81 success=True 507s
+put_the_bowl_on_the_plate demo 23 T=108 success=True 533s
+put_the_bowl_on_the_plate demo 24 T=91 success=True 555s
+put_the_bowl_on_the_plate demo 25 T=104 success=True 580s
+put_the_bowl_on_the_plate demo 26 T=97 success=True 602s
+put_the_bowl_on_the_plate demo 27 T=88 success=True 623s
+put_the_bowl_on_the_plate demo 28 T=88 success=True 644s
+put_the_bowl_on_the_plate demo 29 T=104 success=True 669s
+put_the_bowl_on_the_plate demo 30 T=104 success=True 693s
+put_the_bowl_on_the_plate demo 31 T=98 success=True 716s
+put_the_bowl_on_the_plate demo 32 T=93 success=True 739s
+put_the_bowl_on_the_plate demo 33 T=87 success=True 763s
+put_the_bowl_on_the_plate demo 34 T=93 success=True 788s
+put_the_bowl_on_the_plate demo 35 T=95 success=True 811s
+put_the_bowl_on_the_plate demo 36 T=80 success=True 831s
+put_the_bowl_on_the_plate demo 37 T=97 success=True 855s
+put_the_bowl_on_the_plate demo 38 T=107 success=True 880s
+put_the_bowl_on_the_plate demo 39 T=84 success=True 902s
+put_the_bowl_on_the_plate demo 40 T=91 success=True 926s
+put_the_bowl_on_the_plate demo 41 T=91 success=True 951s
+put_the_bowl_on_the_plate demo 42 T=104 success=True 976s
+put_the_bowl_on_the_plate demo 43 T=127 success=True 1006s
+put_the_bowl_on_the_plate demo 44 T=90 success=True 1028s
+put_the_bowl_on_the_plate demo 45 T=110 success=True 1053s
+put_the_bowl_on_the_plate demo 46 T=80 success=True 1073s
+put_the_bowl_on_the_plate demo 47 T=94 success=True 1096s
+put_the_bowl_on_the_plate demo 48 T=91 success=True 1118s
+put_the_bowl_on_the_plate demo 49 T=90 success=True 1141s

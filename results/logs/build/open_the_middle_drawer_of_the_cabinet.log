@@ -1,0 +1,56 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+open_the_middle_drawer_of_the_cabinet demo 0 T=139 success=True 26s
+open_the_middle_drawer_of_the_cabinet demo 1 T=139 success=True 53s
+open_the_middle_drawer_of_the_cabinet demo 2 T=152 success=True 83s
+open_the_middle_drawer_of_the_cabinet demo 3 T=132 success=True 109s
+open_the_middle_drawer_of_the_cabinet demo 4 T=142 success=True 136s
+open_the_middle_drawer_of_the_cabinet demo 5 T=140 success=True 160s
+open_the_middle_drawer_of_the_cabinet demo 6 T=122 success=True 182s
+open_the_middle_drawer_of_the_cabinet demo 7 T=142 success=True 211s
+open_the_middle_drawer_of_the_cabinet demo 8 T=126 success=True 237s
+open_the_middle_drawer_of_the_cabinet demo 9 T=159 success=True 272s
+open_the_middle_drawer_of_the_cabinet demo 10 T=131 success=True 299s
+open_the_middle_drawer_of_the_cabinet demo 11 T=128 success=True 327s
+open_the_middle_drawer_of_the_cabinet demo 12 T=139 success=True 358s
+open_the_middle_drawer_of_the_cabinet demo 13 T=129 success=True 388s
+open_the_middle_drawer_of_the_cabinet demo 14 T=129 success=True 416s
+open_the_middle_drawer_of_the_cabinet demo 15 T=141 success=True 450s
+open_the_middle_drawer_of_the_cabinet demo 16 T=186 success=True 490s
+open_the_middle_drawer_of_the_cabinet demo 17 T=196 success=True 527s
+open_the_middle_drawer_of_the_cabinet demo 18 T=127 success=True 555s
+open_the_middle_drawer_of_the_cabinet demo 19 T=128 success=True 581s
+open_the_middle_drawer_of_the_cabinet demo 20 T=117 success=True 606s
+open_the_middle_drawer_of_the_cabinet demo 21 T=129 success=True 634s
+open_the_middle_drawer_of_the_cabinet demo 22 T=130 success=True 661s
+open_the_middle_drawer_of_the_cabinet demo 23 T=138 success=True 691s
+open_the_middle_drawer_of_the_cabinet demo 24 T=154 success=True 722s
+open_the_middle_drawer_of_the_cabinet demo 25 T=161 success=True 758s
+open_the_middle_drawer_of_the_cabinet demo 26 T=129 success=True 788s
+open_the_middle_drawer_of_the_cabinet demo 27 T=157 success=True 821s
+open_the_middle_drawer_of_the_cabinet demo 28 T=188 success=True 857s
+open_the_middle_drawer_of_the_cabinet demo 29 T=147 success=True 886s
+open_the_middle_drawer_of_the_cabinet demo 30 T=137 success=True 916s
+open_the_middle_drawer_of_the_cabinet demo 31 T=197 success=True 957s
+open_the_middle_drawer_of_the_cabinet demo 32 T=168 success=True 990s
+open_the_middle_drawer_of_the_cabinet demo 33 T=140 success=True 1022s
+open_the_middle_drawer_of_the_cabinet demo 34 T=147 success=True 1053s
+open_the_middle_drawer_of_the_cabinet demo 35 T=144 success=True 1082s
+open_the_middle_drawer_of_the_cabinet demo 36 T=127 success=True 1111s
+open_the_middle_drawer_of_the_cabinet demo 37 T=134 success=True 1140s
+open_the_middle_drawer_of_the_cabinet demo 38 T=129 success=True 1168s
+open_the_middle_drawer_of_the_cabinet demo 39 T=124 success=True 1194s
+open_the_middle_drawer_of_the_cabinet demo 40 T=151 success=True 1225s
+open_the_middle_drawer_of_the_cabinet demo 41 T=137 success=True 1253s
+open_the_middle_drawer_of_the_cabinet demo 42 T=132 success=True 1283s
+open_the_middle_drawer_of_the_cabinet demo 43 T=131 success=True 1312s
+open_the_middle_drawer_of_the_cabinet demo 44 T=138 success=True 1343s
+open_the_middle_drawer_of_the_cabinet demo 45 T=137 success=True 1373s
+open_the_middle_drawer_of_the_cabinet demo 46 T=125 success=True 1402s
+open_the_middle_drawer_of_the_cabinet demo 47 T=128 success=True 1429s
+open_the_middle_drawer_of_the_cabinet demo 48 T=144 success=True 1459s
+open_the_middle_drawer_of_the_cabinet demo 49 T=130 success=True 1488s

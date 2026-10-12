@@ -1,34 +1,36 @@
-# Virtual environments
-/.venv/
-/venv/
-/env/
-/ENV/
-
-# Python cache and bytecode
+# Python
 __pycache__/
 *.py[cod]
-*$py.class
-*.so
-
-# Testing and coverage
 .pytest_cache/
-.coverage
-htmlcov/
 
-# Intermediate LaTeX files (keep PDF)
+# Local runtimes
+/.venv/
+/.venv_legacy/
+/.python/
+
+# Regenerated data, feature caches, checkpoints, rollouts and job files (rebuild with the scripts)
+/data/libero_goal4/
+/data/features/
+/results/checkpoints/
+/results/rollouts/
+/jobs/
+
+# Documents, figures and report build products
+*.tex
+*.pdf
+*.docx
+*.png
+figures/
 report/*.aux
 report/*.bbl
 report/*.blg
 report/*.log
 report/*.out
-report/*.fls
-report/*.fdb_latexmk
+report/*.toc
 report/*.synctex.gz
-report/page_*.png
 
 # Editor and OS files
 .idea/
 .vscode/
 *.swp
-*.swo
 .DS_Store

@@ -1,315 +1,214 @@
-# Action-Conditioned V-JEPA (V-JEPA-AC) for Latent World Modeling in Robot Manipulation
+# Latent World Model as Robot Foundation Model
 
-[![Course](https://img.shields.io/badge/Course-Advanced%20Machine%20Learning-blue.svg)](https://github.com/s-elim/AML_Assignment_World-Model)
-[![Assignment](https://img.shields.io/badge/Assignment-02%20Model%20Evaluation-green.svg)](assignment%232.pdf)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+Assignment 2 (Setting 3, simulator-based evaluation) for the research area of Assignment 1:
+*learned world models used as pretrained foundation models for robot control*.
 
----
+Four models are trained on the same 160 LIBERO-Goal demonstrations and evaluated in the same simulator on
+the same 40 held-out episodes (seed 0):
 
-## 1. Overview and Scope
+| Model | Representation | Trained here | Control |
+| --- | --- | --- | --- |
+| **V-JEPA 2-AC** (Assran et al., 2025) | frozen V-JEPA 2 ViT-L/16 (304M) | block-causal action-conditioned predictor, 11.4M | CEM in latent space to a goal image |
+| **DINO-WM** (Zhou et al., ICML 2025) | frozen DINOv2 ViT-S/14 (21.6M) | frame-causal ViT predictor | CEM in latent space to a goal image |
+| **TD-MPC2** (Hansen et al., ICLR 2024) | learned (pixels + proprioception) | encoder, latent dynamics, reward, 5 Q-functions, policy prior (5.6M) | MPPI with learned value |
+| **Behaviour cloning** | ResNet-18 (ImageNet init) | end to end, Gaussian NLL | direct policy |
 
-This repository hosts the implementation, experimental configurations, and comparative evaluation framework for **Assignment 2** in Advanced Machine Learning. Consistent with the foundation established in Assignment 1 (*"Learned world models used as pretrained foundation models for robot control"*), this project adopts **Setting 3: Simulator-Based Evaluation** to implement and benchmark modern visual world models.
+Behaviour-cloning variants on frozen DINOv2 and V-JEPA 2 tokens, with a fine-tuned DINOv2, and with an
+added wrist camera form the representation ablation.
 
-The primary model under investigation is **Action-Conditioned V-JEPA (V-JEPA 2-AC)**, an action-conditioned latent dynamics model built on the Joint-Embedding Predictive Architecture. Unlike generative world models that reconstruct raw pixels (e.g., DreamerV3, DayDreamer) or policy-only architectures that lack predictive lookahead, V-JEPA-AC learns predictive representations directly in the feature space of a frozen self-supervised video transformer. Planning operates by running Model Predictive Control (Cross-Entropy Method) directly on latent trajectories to minimize distance to a visual goal embedding.
-
-```
-                    +------------------------------------------+
-                    |        Pretrained Video Encoder          |
-Observation o_t --->|  s_phi(o_t) [Frozen ViT-H/16 or ViT-L/16]|---> Latent State z_t
-                    +------------------------------------------+        |
-                                                                        v
-Planned Action a_t:t+k-1 -----------------------------------------> [ Causal AC Predictor ]
-                                                                        | f_theta(z_t, a)
-                                                                        v
-                                                                Predicted State z_hat_{t+k}
-                                                                        |
-                                         Target z_{t+k} = sg(s_phi(o_{t+k}))
-                                                                        |
-                                         Loss: || z_hat_{t+k} - z_{t+k} ||^2
-```
-
----
-
-## 2. Mathematical Formulation
-
-### 2.1 Latent Prediction Objective Without Reconstruction
-
-Let $o_t \in \mathbb{R}^{H \times W \times 3}$ denote the visual observation at time $t$, and $a_t \in \mathcal{A} \subset \mathbb{R}^{d_a}$ denote the continuous robot action. The frozen or exponential-moving-average visual encoder $s_\phi: \mathcal{O} \to \mathcal{Z}$ maps input frames into patch token embeddings $z_t = s_\phi(o_t) \in \mathbb{R}^{N \times D}$.
-
-The action-conditioned predictor $f_\theta$ is a causal transformer parameterized by $\theta$. Given past visual context $z_{\le t}$ and a planned action sequence $a_{t:t+k-1}$, the predictor estimates future latent tokens without decoding back to pixel space:
-
-$$\hat{z}_{t+k} = f_\theta(z_{\le t}, a_{t:t+k-1})$$
-
-The training loss is an $L_2$ error in representation space with a stop-gradient operator $\text{sg}(\cdot)$ on the target representation:
-
-$$\mathcal{L}_{\text{JEPA}}(\theta) = \mathbb{E}_{(o, a) \sim \mathcal{D}} \left[ \left\| f_\theta(s_\phi(o_{\le t}), a_{t:t+k-1}) - \text{sg}\left(s_\phi(o_{t+k})\right) \right\|_2^2 \right]$$
-
-Eliminating pixel reconstruction eliminates the allocation of model capacity to task-irrelevant visual background distractors, while retaining geometric and semantic scene structure.
-
-### 2.2 Latent Goal-Directed Planning via Model Predictive Control (CEM)
-
-Given a current visual observation $o_t$ and a target goal image $o_g$, the robot infers actions by optimizing trajectory sequences over planning horizon $H$:
-
-$$a_{t:t+H-1}^* = \arg\min_{a_{t:t+H-1}} \mathcal{D}_{\text{cost}}\left( \hat{z}_{t+H}, z_g \right)$$
-
-where $z_g = s_\phi(o_g)$ is the latent representation of the goal, and $\mathcal{D}_{\text{cost}}(u, v) = 1 - \frac{u^\top v}{\|u\|_2 \|v\|_2}$ measures cosine distance in latent space.
-
-Optimization proceeds via the Cross-Entropy Method (CEM):
-1. Sample $N$ candidate action sequences from a Gaussian distribution: $A^{(0)} \sim \mathcal{N}(\mu^{(0)}, \Sigma^{(0)})$.
-2. Forward simulate each sequence through $f_\theta$ in parallel across batches.
-3. Compute the terminal latent distance to $z_g$ for each trajectory.
-4. Select the top $K$ elite sequences ($K < N$).
-5. Update distribution parameters $\mu^{(m+1)}, \Sigma^{(m+1)}$ with momentum $\alpha$.
-6. Repeat for $M$ iterations, executing the first action step $a_t^*$ in the simulator (receding horizon control).
-
----
-
-## 3. Compared Architectures (Assignment 2 Requirement)
-
-To satisfy the comparative mandate (implementing and comparing 3 to 4 models under identical simulation conditions), this benchmark evaluates four distinct paradigms reviewed in Assignment 1:
-
-| Model ID | Paradigm | Feature Space | Reconstruction Loss | Planning / Action Method | Reference Paper |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **V-JEPA 2-AC** (Primary) | Latent World Model | Self-supervised Video ViT | None ($L_2$ latent) | Zero-shot CEM MPC | Assran et al., Meta FAIR 2025 |
-| **DINO-WM** | Latent World Model | Self-supervised DINOv2 | None ($L_2$ latent) | Zero-shot CEM MPC | Zhou et al., ICML 2025 |
-| **TD-MPC2** | Task-Driven World Model | Learned Task Latent | Decoder-free (Q-value) | Task-Reward MPPI / CEM | Hansen et al., ICLR 2024 |
-| **Diffusion Policy / BC** | Direct Policy Execution | Vision Encoder + MLP/DDPM | N/A (Policy only) | Open-loop closed-loop rollout | Chi et al., RSS 2023 |
-
-### Architectural Contrast
-
-1. **V-JEPA 2-AC vs. DINO-WM**: DINO-WM predicts next patch features frame-by-frame from static DINOv2 representations. V-JEPA 2-AC uses spatio-temporal tubelet tokens (16 frames, tubelet size 2) with 3D rotary embeddings, providing explicit motion cues over temporal windows.
-2. **V-JEPA 2-AC vs. TD-MPC2**: TD-MPC2 requires explicit environmental reward supervision during dynamics learning. V-JEPA-AC learns dynamics purely self-supervised from unannotated visual-action trajectories, enabling zero-shot goal specification via goal images.
-3. **V-JEPA 2-AC vs. Direct Policy**: Policy baselines do not simulate alternative counterfactuals. V-JEPA-AC evaluates 400 candidate action sequences concurrently in latent space prior to commitment.
-
----
-
-## 4. Simulation Environment and Benchmark Tasks
-
-Evaluations are conducted on standardized robotic manipulation environments using **Meta-World (v2)** and **Robosuite** (Franka Emika Panda 7-DoF arm with parallel-jaw gripper).
-
-### Simulation Specifications
-
-- **Simulator**: MuJoCo 3.x / Gymnasium
-- **Control Rate**: 20 Hz
-- **Action Space**: Continuous 4-DoF / 7-DoF Cartesian end-effector control:
-  $$\Delta x, \Delta y, \Delta z, \Delta \text{yaw}, \text{gripper state} \in [-1, 1]$$
-- **Observation Space**: RGB image $224 \times 224 \times 3$ captured from an off-axis third-person camera.
-- **State Feedback**: End-effector Cartesian pose and gripper aperture (used by the action conditioner).
-
-### Task Suite
-
-1. **Reach**: Navigate the end-effector to a variable 3D goal coordinate.
-2. **Push**: Slide a target block across the table surface to a marked zone.
-3. **Pick-Place**: Grasp an object, lift against gravity, and transport to a target receptacle.
-4. **Drawer-Open**: Engage the handle of a cabinet drawer and pull along a linear slide constraint.
-
----
-
-## 5. Repository Layout
+## Repository layout
 
 ```
-AML_Assignment_World-Model/
-├── assignment#2.pdf                   # Official Assignment 2 task description and rubric
-├── Selim_22546245 Assignment 01.docx   # Assignment 1 comprehensive literature review
-├── README.md                          # Project documentation and reproducibility guide
-│
-├── configs/                           # Experiment configuration files
-│   ├── env/
-│   │   ├── metaworld_reach.yaml
-│   │   ├── metaworld_push.yaml
-│   │   └── metaworld_pick_place.yaml
-│   ├── model/
-│   │   ├── vjepa2_ac_vitl16.yaml
-│   │   ├── dino_wm.yaml
-│   │   └── tdmpc2.yaml
-│   └── planning/
-│       └── cem_default.yaml
-│
-├── src/                               # Core implementation
-│   ├── env/                           # Simulation wrappers and vectorization
-│   │   ├── metaworld_wrapper.py
-│   │   └── camera_utils.py
-│   ├── models/                        # Dynamics predictors and adapters
-│   │   ├── vjepa_ac_interface.py
-│   │   └── baseline_wrappers.py
-│   ├── planning/                      # Latent trajectory optimization
-│   │   ├── cem.py
-│   │   ├── cost_functions.py
-│   │   └── mpc_controller.py
-│   └── utils/                         # Logging, seeding, metrics computation
-│       ├── seed.py
-│       └── metrics.py
-│
-├── scripts/                           # Reproducibility entrypoints
-│   ├── collect_demonstrations.py      # Generate expert/scripted trajectories
-│   ├── train_ac_predictor.py          # Train action-conditioned predictor
-│   ├── evaluate_latent_mpc.py         # Run closed-loop evaluation
-│   └── generate_comparative_plots.py  # Compile metrics tables and curves
-│
-├── data/                              # Offline trajectory datasets (.npz / .h5)
-│   └── README.md                      # Dataset specifications and split instructions
-│
-├── results/                           # Evaluation outputs, tables, and trajectory plots
-│   ├── figures/
-│   └── tables/
-│
-├── V-JEPA/                            # Meta FAIR V-JEPA upstream codebase
-├── V-JEPA-2/                          # Meta FAIR V-JEPA 2 upstream codebase (AC predictor)
-└── JEPA/                              # Meta FAIR I-JEPA upstream codebase
+configs/
+  libero/config.yaml        LIBERO path configuration (points at a LIBERO clone)
+  model/*.yaml              one file per trained model (all hyperparameters, seed 0)
+src/
+  env/libero_env.py         Gymnasium wrapper: 4 LIBERO-Goal tasks, 4 Hz macro steps, goal error in cm
+  data/libero_data.py       demonstration loading, macro-step clips, state normalisation
+  models/encoders.py        frozen V-JEPA 2 ViT-L/16 and DINOv2 ViT-S/14 (8x8 token grids)
+  models/vjepa2_ac.py       V-JEPA 2-AC predictor, losses, cached rollout
+  models/dino_wm.py         DINO-WM predictor, loss, rollout
+  models/tdmpc2.py          TD-MPC2 model, update, MPPI planner
+  models/bc_policy.py       behaviour-cloning policies
+  planning/cem.py, costs.py cross-entropy method and latent goal costs
+  agents.py                 observation -> action wrappers used in evaluation
+  third_party/vjepa2/       vendored V-JEPA 2 modules (MIT, see its README)
+scripts/
+  build_libero_dataset.py   regenerate the 200 demonstrations (images, states, actions)
+  encode_features.py        cache frozen encoder features
+  train_world_model.py      train V-JEPA 2-AC or DINO-WM
+  train_tdmpc2.py           train TD-MPC2 offline
+  train_bc.py               train a behaviour-cloning policy
+  evaluate.py               closed-loop evaluation (main runs and ablations)
+  analyze_prediction.py     open-loop multi-step latent prediction error
+  analyze_energy.py         planning-energy landscape versus executed outcome
+  profile_latency.py        isolated latency, throughput and GPU memory per decision
+  make_report_assets.py     report tables, figures, statistics and number macros
+  slurm/gpu_worker.sbatch   GPU job runner used for the reported runs
+tests/                      unit tests (models, planner) and a simulator integration test
+results/
+  logs/                     training histories (JSON) and run logs
+  eval/                     per-episode evaluation records (JSON)
+  tables/                   aggregated result tables
+report/                     technical report sources (not tracked)
 ```
 
----
+## 1. Setup
 
-## 6. Installation and Hardware Setup
-
-### System Prerequisites
-
-- OS: Linux (Ubuntu 22.04 LTS or compatible)
-- GPU: NVIDIA GPU with CUDA 12.1+ (Minimum 16 GB VRAM for ViT-L/16 inference; 24 GB+ recommended for predictor training)
-- Python: 3.10+
-
-### Environment Setup
+Python 3.11 on Linux. The cluster has four NVIDIA RTX PRO 6000 Blackwell GPUs (96 GB each); the reported runs used
+one of them for training, encoding and planning, and CPU MuJoCo for simulation.
 
 ```bash
-# Clone the repository
-git clone https://github.com/s-elim/AML_Assignment_World-Model.git
-cd AML_Assignment_World-Model
-
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Upgrade packaging tools
-pip install --upgrade pip setuptools wheel
-
-# Install PyTorch with CUDA support
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
-
-# Install simulation and manipulation dependencies
-pip install gymnasium mujoco metaworld robosuite
-
-# Install V-JEPA 2 core dependencies
-pip install timm einops omegaconf hydra-core h5py pandas matplotlib seaborn
-pip install -r V-JEPA-2/requirements.txt
+uv venv --python 3.11 .venv
+uv pip install --python .venv/bin/python torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
+uv pip install --python .venv/bin/python -r requirements.txt
 ```
 
----
-
-## 7. Experimental Workflow and Reproducibility
-
-### Step 1: Trajectory Dataset Generation
-
-Collect 500 demonstrations per task using scripted expert or operational space controllers:
+**LIBERO.** Clone the official repository and download the LIBERO-Goal demonstrations:
 
 ```bash
-python scripts/collect_demonstrations.py \
-    --env metaworld_push \
-    --num_episodes 500 \
-    --save_dir data/metaworld_push \
-    --image_size 224 \
-    --seed 42
+git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git /path/to/LIBERO
+cd /path/to/LIBERO && python benchmark_scripts/download_libero_datasets.py --datasets libero_goal
 ```
 
-Data is stored as compressed NumPy archives (`.npz`) containing:
-- `observations`: Shape `(T, 224, 224, 3)`, uint8
-- `actions`: Shape `(T, d_a)`, float32
-- `states`: End-effector pose `(T, 7)`, float32
-- `rewards`: Shape `(T,)`, float32
+Then set `LIBERO_ROOT=/path/to/LIBERO` and edit the five paths in `configs/libero/config.yaml`.
 
-### Step 2: Training the Action-Conditioned Predictor
+**Rendering.** MuJoCo renders offscreen: `export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl` on a GPU machine, or
+`MUJOCO_GL=osmesa PYOPENGL_PLATFORM=osmesa` with an OSMesa build on `LD_LIBRARY_PATH` on a CPU machine.
 
-Train the causal AC transformer on top of frozen V-JEPA 2 representations:
+**Pretrained weights** (downloaded automatically on first use):
+
+| Weights | Source |
+| --- | --- |
+| V-JEPA 2 ViT-L/16 (`vitl.pt`, target encoder) | https://dl.fbaipublicfiles.com/vjepa2/vitl.pt |
+| DINOv2 ViT-S/14 | `timm/vit_small_patch14_dinov2.lvd142m` (Hugging Face) |
+| ResNet-18 | `timm/resnet18.a1_in1k` (Hugging Face) |
+
+## 2. Data
+
+| Item | Value |
+| --- | --- |
+| Source | LIBERO-Goal human demonstrations (Liu et al., NeurIPS 2023 Datasets and Benchmarks), 50 per task |
+| Tasks | `turn_on_the_stove`, `put_the_bowl_on_the_plate`, `push_the_plate_to_the_front_of_the_stove`, `open_the_middle_drawer_of_the_cabinet` |
+| Observations | agent-view and wrist RGB 128x128, 7-D proprioception (end-effector position, axis-angle, finger opening) |
+| Actions | LIBERO OSC_POSE, 7-D in [-1, 1] (position offset up to 0.05 m, rotation up to 0.5 rad, gripper) |
+| Split | 40 training / 10 test demonstrations per task, fixed by seed 0 (`<task>__meta.json`) |
+| Preprocessing | frames re-rendered from the stored MuJoCo states with the evaluation renderer; 5 control steps per model step (4 Hz); macro action = mean of the 5 primitive actions |
 
 ```bash
-python scripts/train_ac_predictor.py \
-    --config configs/model/vjepa2_ac_vitl16.yaml \
-    --data_dir data/metaworld_push \
-    --batch_size 32 \
-    --lr 1e-4 \
-    --epochs 50 \
-    --device cuda:0
+for t in turn_on_the_stove put_the_bowl_on_the_plate push_the_plate_to_the_front_of_the_stove open_the_middle_drawer_of_the_cabinet; do
+  python scripts/build_libero_dataset.py --task $t --out data/libero_goal4
+done
 ```
 
-#### Default Training Hyperparameters
+## 3. Reproducing the experiments
 
-| Hyperparameter | Value | Description |
-| :--- | :--- | :--- |
-| Encoder Backbone | ViT-L/16 (V-JEPA 2) | Frozen visual representation extractor |
-| Predictor Depth | 12 Layers | Transformer blocks in AC predictor |
-| Predictor Width | 768 | Hidden dimension |
-| Attention Heads | 12 | Multi-head self-attention |
-| Action Dimension | 4 or 7 | End-effector velocity + gripper command |
-| Optimizer | AdamW | $\beta_1=0.9, \beta_2=0.95$ |
-| Weight Decay | 0.05 | Decoupled weight regularization |
-| Learning Rate | $1 \times 10^{-4}$ | Cosine decay schedule with 5-epoch warmup |
-| Batch Size | 32 | Sequences per gradient step |
-| Sequence Length ($T$) | 16 frames | Context window for temporal reasoning |
-
-### Step 3: Closed-Loop Latent Model Predictive Control Evaluation
-
-Evaluate the trained world model in the simulation loop across 50 test episodes with 3 random seeds:
+All commands run from the repository root with `PYTHONPATH=.`; every script is seeded with 0.
 
 ```bash
-python scripts/evaluate_latent_mpc.py \
-    --env metaworld_push \
-    --checkpoint results/checkpoints/vjepa2_ac_best.pt \
-    --mpc_samples 400 \
-    --mpc_horizon 5 \
-    --mpc_iterations 10 \
-    --mpc_topk 10 \
-    --num_eval_episodes 50 \
-    --seed 100
+# features from the frozen encoders
+python scripts/encode_features.py --encoder vjepa2
+python scripts/encode_features.py --encoder dinov2
+
+# training (one model for all four tasks)
+python scripts/train_world_model.py --config configs/model/vjepa2_ac.yaml
+python scripts/train_world_model.py --config configs/model/dino_wm.yaml
+python scripts/train_tdmpc2.py      --config configs/model/tdmpc2.yaml
+python scripts/train_bc.py          --config configs/model/bc_resnet18.yaml
+#   ablation policies: bc_resnet18_wrist, bc_dinov2_frozen, bc_vjepa2_frozen, bc_dinov2_finetune
+
+# closed-loop evaluation: 4 tasks x 10 held-out episodes
+python scripts/evaluate.py --agent vjepa2_ac   --tag vjepa2_ac --record
+python scripts/evaluate.py --agent dino_wm     --tag dino_wm   --record
+python scripts/evaluate.py --agent tdmpc2      --tag tdmpc2
+python scripts/evaluate.py --agent bc_resnet18 --tag bc_resnet18 --record
+
+# planner ablations (V-JEPA 2-AC), for example
+python scripts/evaluate.py --agent vjepa2_ac --tag abl_H5    --horizon 5
+python scripts/evaluate.py --agent vjepa2_ac --tag abl_N64   --samples 64
+python scripts/evaluate.py --agent vjepa2_ac --tag abl_K0.2  --elite_frac 0.2
+python scripts/evaluate.py --agent vjepa2_ac --tag abl_cos   --cost cosine
+
+python scripts/evaluate.py --agent vjepa2_ac --tag vjepa2_ac_dataprior --action_prior data --record
+python scripts/evaluate.py --agent vjepa2_ac --tag vjepa2_ac_H3 --horizon 3 --record   # post hoc, all tasks
+
+# analyses: open-loop prediction error, energy landscapes, isolated latency profile
+python scripts/analyze_prediction.py
+python scripts/analyze_energy.py --agent vjepa2_ac --task turn_on_the_stove --episode 0 --grid 11
+python scripts/profile_latency.py
+
+# every table, figure and number of the report (writes report/generated/ and results/figures/)
+python scripts/make_report_assets.py
+
+# tests (the simulator test needs the dataset and MUJOCO_GL)
+python -m pytest -q tests
 ```
 
----
+## 4. Experimental configuration
 
-## 8. Evaluation Metrics and Reporting Protocol
+The full configuration of every model is in `configs/model/`. Shared settings:
 
-In accordance with Assignment 2 specifications, performance is quantified across four evaluation axes:
+| Setting | Value |
+| --- | --- |
+| Seed | 0 (data split, initialisation, minibatch order, planner sampling, evaluation) |
+| Optimiser | AdamW (world models, BC), Adam (TD-MPC2, as in the paper) |
+| World-model training | 40 epochs, batch 64 clips, peak LR 4.25e-4, warm-up 5%, cosine decay, weight decay 0.04 |
+| TD-MPC2 training | 40,000 updates, batch 256, LR 3e-4 (encoder x0.3), horizon 3 |
+| BC training | 30 epochs, batch 64, LR 1e-4 (end to end) or 3e-4 (frozen tokens), one-cycle schedule |
+| Augmentation | random shift (BC: 6 px, TD-MPC2: 4 px); none for the frozen-feature world models |
+| Planner (latent models) | CEM, horizon 10 model steps (2.5 s), 256 samples, 10 iterations, 5% elites, momentum 0.15 |
+| Planner (TD-MPC2) | MPPI, horizon 3, 512 samples, 64 elites, 24 policy samples, 6 iterations |
+| Episode | starts at the first state of a held-out demonstration, goal frame from its final state, 300 control steps maximum |
+| Metrics | success (LIBERO BDDL predicate), final goal error (cm), return, steps to success, planning latency, peak VRAM |
 
-1. **Task Success Rate (%)**: Fraction of evaluation episodes satisfying the simulator task completion criteria within the maximum horizon ($T_{\max} = 150$).
-2. **Latent Prediction Error (MSE)**: Mean squared error between predicted latent token trajectories $\hat{z}_{t+k}$ and ground-truth encoded frames $s_\phi(o_{t+k})$:
-   $$\text{MSE}_k = \frac{1}{N \cdot D} \sum_{i=1}^N \| \hat{z}_{t+k}^{(i)} - z_{t+k}^{(i)} \|_2^2$$
-3. **Goal Tracking Error (cm)**: Final Euclidean distance between object position and target coordinates at episode termination.
-### Quantitative Benchmark Results (Seed 0, 10 Rollouts)
+## 5. Results
 
-| Model Paradigm | Reach (SR %) | Push (SR %) | Pick-Place (SR %) | Drawer-Open (SR %) | Mean SR (%) | Goal Dist (cm) | Latent MSE ($k=5$) | Latency (ms) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Direct BC Policy** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | **12.68** | N/A | **1.9** |
-| **TD-MPC2** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 29.36 | 0.0023 | 3.7 |
-| **DINO-WM** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 24.05 | **0.0022** | 11.1 |
-| **V-JEPA 2-AC (Ours)**| **10.0%** | 0.0% | 0.0% | 0.0% | **2.5%** | 20.22 | 0.0050 | 136.8 |
+Seed 0, 10 held-out episodes per task (40 per model, identical across models). Successes per task, pooled success
+rate with a Wilson 95% interval, and mean final goal error. Full tables, paired tests and figures are in the
+report; per-episode records are in `results/eval/<tag>/<task>.json`.
 
-*Evaluation Protocol: Fixed seed 0 across 10 evaluation rollout episodes per task under identical simulation conditions.*
+| Model | Stove | Bowl-Plate | Push-Plate | Drawer | Success [95% CI] | Goal error (cm) |
+| --- | :-: | :-: | :-: | :-: | :-: | :-: |
+| V-JEPA 2-AC (H=10) | 2 | 0 | 0 | 0 | 5% [1, 17] | 23.0 |
+| DINO-WM (H=10) | 4 | 0 | 0 | 0 | 10% [4, 23] | 19.9 |
+| TD-MPC2 | 0 | 0 | 0 | 0 | 0% [0, 9] | 31.8 |
+| BC (ResNet-18, agent view) | 10 | 0 | 8 | 3 | 52% [37, 67] | 9.2 |
+| BC + wrist view | 10 | 9 | 10 | 9 | 95% [83, 99] | 3.2 |
+| BC, frozen DINOv2 tokens | 10 | 9 | 9 | 7 | 88% [74, 95] | 3.8 |
+| BC, frozen V-JEPA 2 tokens | 9 | 7 | 9 | 0 | 62% [47, 76] | 7.5 |
+| BC, fine-tuned DINOv2 | 10 | 10 | 10 | 5 | 88% [74, 95] | 4.3 |
 
-### Execution and Reproduction
+Planner ablations (V-JEPA 2-AC, Stove, successes of 10): horizon H=3: 9, H=5: 5, H=10: 2, H=15: 3; samples
+N=32/64/128/512: 1/2/1/2; elite fraction 0.1/0.2: 2/1; cosine/L2/Mahalanobis energy: 1/0/1. A data-informed action
+prior gives 0/40 for both planners. Post hoc, H=3 on all tasks: V-JEPA 2-AC 9/40 and DINO-WM 5/40, every success on
+Stove (0/30 on the contact-rich tasks for both).
 
-1. **Closed-Loop Latent MPC Evaluation**:
-```bash
-LD_LIBRARY_PATH=/home/selim/.local/share/mesa24-osmesa/lib:/home/selim/.local/share/claude-prism/app/usr/lib:$LD_LIBRARY_PATH MUJOCO_GL=osmesa \
-.venv/bin/python scripts/evaluate_latent_mpc.py --seeds 0 --num_episodes 10
-```
+Isolated latency per decision (one RTX PRO 6000 Blackwell): V-JEPA 2-AC 511 ms, DINO-WM 929 ms, TD-MPC2 19 ms,
+BC 1.8 ms.
 
-2. **Generate Publication Figures and LaTeX Tables**:
-```bash
-.venv/bin/python scripts/generate_comparative_plots.py
-```
+Key observations: the frozen DINOv2 features that give a policy 88% success give a planner 10%; on demonstrated
+actions the latent predictors beat a no-change baseline at every horizon, but on the actions the planner selects
+they are 25-36% worse than it; the planning energy tracks the arm rather than the manipulated object.
 
-3. **Compile Technical Report**:
-```bash
-cd report && tectonic assignment2_report.tex
-```
+## 6. External code, models and data
 
+| Resource | Use | Licence |
+| --- | --- | --- |
+| [facebookresearch/vjepa2](https://github.com/facebookresearch/vjepa2) | encoder and AC-predictor modules vendored in `src/third_party/vjepa2`; `vitl.pt` weights | MIT |
+| [facebookresearch/dinov2](https://github.com/facebookresearch/dinov2) via [timm](https://github.com/huggingface/pytorch-image-models) | DINOv2 ViT-S/14 weights | Apache-2.0 |
+| [gaoyuezhou/dino_wm](https://github.com/gaoyuezhou/dino_wm) | reference for the DINO-WM predictor design (re-implemented) | MIT |
+| [nicklashansen/tdmpc2](https://github.com/nicklashansen/tdmpc2) | reference for TD-MPC2 (re-implemented) | MIT |
+| [Lifelong-Robot-Learning/LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) | simulator, BDDL tasks and demonstrations | MIT |
+| [ARISE-Initiative/robosuite](https://github.com/ARISE-Initiative/robosuite) v1.4.0, [MuJoCo](https://github.com/google-deepmind/mujoco) 2.3.7 | physics and rendering | MIT, Apache-2.0 |
 
----
+`V-JEPA/`, `V-JEPA-2/` and `JEPA/` are unmodified copies of the upstream repositories kept for reference.
+AI coding assistance was used for implementation and documentation; all code was read, tested and verified.
 
-## 9. References and Attribution
+## 7. References
 
-1. **V-JEPA 2**: M. Assran, A. Bardes, D. Fan, Q. Garrido, et al., *"V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning"*, Meta FAIR, 2025.
-2. **V-JEPA**: A. Bardes, Q. Garrido, J. Ponce, X. Chen, M. Rabbat, Y. LeCun, M. Assran, N. Ballas, *"Revisiting Feature Prediction for Learning Visual Representations from Video"*, arXiv:2404.08471, 2024.
-3. **I-JEPA**: M. Assran, Q. Duval, I. Misra, P. Bojanowski, P. Vincent, M. Rabbat, Y. LeCun, N. Ballas, *"Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture"*, CVPR, 2023.
-4. **DINO-WM**: G. Zhou, H. Pan, Y. LeCun, L. Pinto, *"World Models on Pre-trained Visual Features enable Zero-shot Planning"*, ICML, 2025.
-5. **TD-MPC2**: N. Hansen, H. Su, X. Wang, *"TD-MPC2: Scalable, Robust World Models for Continuous Control"*, ICLR, 2024.
-6. **DreamerV3**: D. Hafner, J. Pasukonis, J. Ba, T. Lillicrap, *"Mastering Diverse Control Tasks through World Models"*, Nature, 2025.
-7. **Meta-World**: T. Yu, D. Quillen, Z. He, R. Julian, K. Hausman, C. Finn, S. Levine, *"Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning"*, CoRL, 2019.
+1. M. Assran et al., "V-JEPA 2: Self-supervised video models enable understanding, prediction and planning," arXiv:2506.09985, 2025.
+2. G. Zhou, H. Pan, Y. LeCun, L. Pinto, "DINO-WM: World models on pre-trained visual features enable zero-shot planning," ICML, 2025. arXiv:2411.04983.
+3. N. Hansen, H. Su, X. Wang, "TD-MPC2: Scalable, robust world models for continuous control," ICLR, 2024. arXiv:2310.16828.
+4. B. Liu et al., "LIBERO: Benchmarking knowledge transfer for lifelong robot learning," NeurIPS Datasets and Benchmarks, 2023. arXiv:2306.03310.
+5. M. Oquab et al., "DINOv2: Learning robust visual features without supervision," TMLR, 2024. arXiv:2304.07193.
+6. K. He, X. Zhang, S. Ren, J. Sun, "Deep residual learning for image recognition," CVPR, 2016.

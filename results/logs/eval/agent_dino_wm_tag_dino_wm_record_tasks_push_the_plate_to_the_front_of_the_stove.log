@@ -1,0 +1,19 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[dino_wm] Push-Plate ep 0 demo 2: success=False steps=300 err=26.2cm plan=10366ms wall=651s
+[dino_wm] Push-Plate ep 1 demo 4: success=False steps=300 err=29.4cm plan=10211ms wall=637s
+[dino_wm] Push-Plate ep 2 demo 10: success=False steps=300 err=22.9cm plan=9887ms wall=616s
+[dino_wm] Push-Plate ep 3 demo 11: success=False steps=300 err=24.7cm plan=9846ms wall=614s
+[dino_wm] Push-Plate ep 4 demo 22: success=False steps=300 err=25.6cm plan=9854ms wall=614s
+[dino_wm] Push-Plate ep 5 demo 27: success=False steps=300 err=26.0cm plan=9858ms wall=614s
+[dino_wm] Push-Plate ep 6 demo 28: success=False steps=300 err=25.8cm plan=9824ms wall=612s
+[dino_wm] Push-Plate ep 7 demo 31: success=False steps=300 err=24.6cm plan=8688ms wall=541s
+[dino_wm] Push-Plate ep 8 demo 38: success=False steps=300 err=29.7cm plan=6118ms wall=383s
+[dino_wm] Push-Plate ep 9 demo 41: success=False steps=300 err=26.0cm plan=3247ms wall=204s
+[dino_wm] Push-Plate: success 0.00

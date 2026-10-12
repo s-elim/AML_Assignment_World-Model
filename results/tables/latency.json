@@ -1,0 +1,100 @@
+{
+ "vjepa2_ac": {
+  "encode_ms": {
+   "mean": 38.70171843251834,
+   "std": 3.087778292099613
+  },
+  "plan_ms": {
+   "mean": 472.5492680134873,
+   "std": 0.12999624606754542
+  },
+  "extract_ms": {
+   "mean": 0.15782992510745922,
+   "std": 0.018885235123486173
+  },
+  "total_ms": {
+   "mean": 511.40881637111306,
+   "std": 3.0841401101437165
+  },
+  "decisions_per_s": 1.9553827935463903,
+  "peak_vram_mb": 4091.06982421875,
+  "params": {
+   "encoder_frozen": 303885312,
+   "trained": 11444224
+  },
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+ },
+ "dino_wm": {
+  "encode_ms": {
+   "mean": 3.88225968927145,
+   "std": 0.17173287986581426
+  },
+  "plan_ms": {
+   "mean": 924.7611761558801,
+   "std": 0.24742585846616744
+  },
+  "extract_ms": {
+   "mean": 0.182025833055377,
+   "std": 0.03408503117103925
+  },
+  "total_ms": {
+   "mean": 928.8254616782069,
+   "std": 0.333528454944307
+  },
+  "decisions_per_s": 1.0766285392232837,
+  "peak_vram_mb": 1638.56005859375,
+  "params": {
+   "encoder_frozen": 21628800,
+   "trained": 11272368
+  },
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+ },
+ "tdmpc2": {
+  "encode_ms": {
+   "mean": 0.8649331905568639,
+   "std": 0.07864158045278039
+  },
+  "plan_ms": {
+   "mean": 18.29403026495129,
+   "std": 0.5541903281012784
+  },
+  "extract_ms": {
+   "mean": 0.05018493005385002,
+   "std": 0.006915032846918724
+  },
+  "total_ms": {
+   "mean": 19.209148385562003,
+   "std": 0.5890764738623065
+  },
+  "decisions_per_s": 52.0585285681702,
+  "peak_vram_mb": 48.9794921875,
+  "params": {
+   "trained": 5574540
+  },
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+ },
+ "bc_resnet18": {
+  "encode_ms": {
+   "mean": 0.04182835885634025,
+   "std": 0.002040061938206548
+  },
+  "plan_ms": {
+   "mean": 1.7003263191630442,
+   "std": 0.044465043335002265
+  },
+  "extract_ms": {
+   "mean": 0.05398594463864962,
+   "std": 0.00635587653983671
+  },
+  "total_ms": {
+   "mean": 1.796140622658034,
+   "std": 0.0470332161791922
+  },
+  "decisions_per_s": 556.7492808665178,
+  "peak_vram_mb": 79.27001953125,
+  "params": {
+   "trained": 11758798
+  },
+  "device": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+ }
+}

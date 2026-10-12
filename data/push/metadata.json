@@ -1,9 +1,0 @@
-{
-  "task_name": "push",
-  "total_episodes": 50,
-  "train_episodes": 40,
-  "val_episodes": 10,
-  "expert_success_rate": 100.0,
-  "image_size": 224,
-  "seed": 42
-}

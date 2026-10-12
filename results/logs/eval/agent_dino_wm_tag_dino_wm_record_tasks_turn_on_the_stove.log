@@ -1,0 +1,19 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[dino_wm] Stove ep 0 demo 2: success=False steps=300 err=23.7cm plan=10345ms wall=652s
+[dino_wm] Stove ep 1 demo 4: success=True steps=100 err=8.9cm plan=10368ms wall=215s
+[dino_wm] Stove ep 2 demo 10: success=True steps=101 err=5.1cm plan=10344ms wall=226s
+[dino_wm] Stove ep 3 demo 11: success=False steps=300 err=32.0cm plan=9829ms wall=614s
+[dino_wm] Stove ep 4 demo 22: success=False steps=300 err=21.8cm plan=9824ms wall=613s
+[dino_wm] Stove ep 5 demo 27: success=False steps=300 err=32.2cm plan=9836ms wall=614s
+[dino_wm] Stove ep 6 demo 28: success=False steps=300 err=36.8cm plan=9836ms wall=614s
+[dino_wm] Stove ep 7 demo 31: success=True steps=239 err=19.4cm plan=9822ms wall=489s
+[dino_wm] Stove ep 8 demo 38: success=True steps=201 err=5.8cm plan=9474ms wall=403s
+[dino_wm] Stove ep 9 demo 41: success=False steps=300 err=17.4cm plan=8533ms wall=532s
+[dino_wm] Stove: success 0.40

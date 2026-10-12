@@ -1,0 +1,704 @@
+{
+ "radius_cm": {
+  "turn_on_the_stove": 4.150866914554356,
+  "put_the_bowl_on_the_plate": 8.460961204524288,
+  "push_the_plate_to_the_front_of_the_stove": 10.865800291228918,
+  "open_the_middle_drawer_of_the_cabinet": 24.125703058387785
+ },
+ "counts": {
+  "vjepa2_ac": {
+   "approach": 30,
+   "contact": 8,
+   "partial": 0,
+   "success": 2
+  },
+  "dino_wm": {
+   "approach": 19,
+   "contact": 16,
+   "partial": 1,
+   "success": 4
+  },
+  "tdmpc2": {
+   "approach": 40,
+   "contact": 0,
+   "partial": 0,
+   "success": 0
+  },
+  "bc_resnet18": {
+   "approach": 0,
+   "contact": 18,
+   "partial": 1,
+   "success": 21
+  }
+ },
+ "latent": {
+  "vjepa2_ac": {
+   "flags": {
+    "ambiguity": 25,
+    "drift": 38,
+    "n_fail": 38
+   },
+   "episodes": [
+    {
+     "rho": 0.3027786167321051,
+     "drift_ratio": 1.3836264610290527,
+     "believed_gain": 0.06205787367845629,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.3521533759377606,
+     "drift_ratio": 1.4416476488113403,
+     "believed_gain": 0.036854512562169386,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.5700472353431509,
+     "drift_ratio": 1.4910389184951782,
+     "believed_gain": 0.06020293946351719,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.3970588235294118,
+     "drift_ratio": 1.3391053676605225,
+     "believed_gain": 0.07642803337813134,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.4706307307585441,
+     "drift_ratio": 1.4048840999603271,
+     "believed_gain": 0.045519214831660125,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.6666851903306475,
+     "drift_ratio": 1.475440502166748,
+     "believed_gain": 0.04473296832710745,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.7186440677966103,
+     "drift_ratio": 1.448688268661499,
+     "believed_gain": 0.06824506666238853,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.5979438732981385,
+     "drift_ratio": 1.4892773628234863,
+     "believed_gain": 0.13387649389891243,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.5952208946929705,
+     "drift_ratio": 1.6042988300323486,
+     "believed_gain": 0.01781825301580413,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.1673242567379828,
+     "drift_ratio": 1.5421591997146606,
+     "believed_gain": 0.04364487109888925,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.2595084006894968,
+     "drift_ratio": 1.287568211555481,
+     "believed_gain": 0.2668414071475177,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.6574460357456088,
+     "drift_ratio": 1.2691367864608765,
+     "believed_gain": 0.3100981161922478,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.04671876606743577,
+     "drift_ratio": 1.2619942426681519,
+     "believed_gain": 0.22464844003983836,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.07017260376205724,
+     "drift_ratio": 1.2653900384902954,
+     "believed_gain": 0.2568728806210982,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.6036215905956595,
+     "drift_ratio": 1.2331665754318237,
+     "believed_gain": 0.2883811159659504,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.12722332297434638,
+     "drift_ratio": 1.2162420749664307,
+     "believed_gain": 0.2828105763772991,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.7562618039823097,
+     "drift_ratio": 1.3671150207519531,
+     "believed_gain": 0.28511384666029205,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.4950396046119329,
+     "drift_ratio": 1.364850640296936,
+     "believed_gain": 0.2516106320538473,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.3559875676120757,
+     "drift_ratio": 1.2972023487091064,
+     "believed_gain": 0.2676258945652661,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.03652329827810244,
+     "drift_ratio": 1.2614459991455078,
+     "believed_gain": 0.23174645444379624,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.062112452347745484,
+     "drift_ratio": 1.2447669506072998,
+     "believed_gain": 0.23997670812099747,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.3188936120816571,
+     "drift_ratio": 1.2637453079223633,
+     "believed_gain": 0.21969693011962668,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.027635026901171998,
+     "drift_ratio": 1.2647655010223389,
+     "believed_gain": 0.23686455677225365,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.13737548713088513,
+     "drift_ratio": 1.281856656074524,
+     "believed_gain": 0.2172102123341495,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.25123393577257286,
+     "drift_ratio": 1.3525280952453613,
+     "believed_gain": 0.2358706113039094,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.011717673761678017,
+     "drift_ratio": 1.3138010501861572,
+     "believed_gain": 0.2312459326349965,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.24814973400349788,
+     "drift_ratio": 1.2908726930618286,
+     "believed_gain": 0.2558868241373684,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.1270305603637792,
+     "drift_ratio": 1.302134394645691,
+     "believed_gain": 0.22149330858478578,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.27392473615608864,
+     "drift_ratio": 1.2040802240371704,
+     "believed_gain": 0.24057949515793842,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "contact"
+    },
+    {
+     "rho": 0.039644843573319044,
+     "drift_ratio": 1.3490638732910156,
+     "believed_gain": 0.25327815531289555,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.2696853818295409,
+     "drift_ratio": 1.1941509246826172,
+     "believed_gain": 0.2795877577267376,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": 0.3961629620334328,
+     "drift_ratio": 1.2044023275375366,
+     "believed_gain": 0.3461778289367432,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": 0.3446452659926373,
+     "drift_ratio": 1.3763779401779175,
+     "believed_gain": 0.2321194392115431,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.2378885746002197,
+     "believed_gain": 0.3053085350834486,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "approach"
+    },
+    {
+     "rho": -0.24242562542751317,
+     "drift_ratio": 1.175153136253357,
+     "believed_gain": 0.2923618615418229,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1510462760925293,
+     "believed_gain": 0.3505044248496817,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.3218162059783936,
+     "believed_gain": 0.23632314324431145,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "approach"
+    },
+    {
+     "rho": 0.2057376338111156,
+     "drift_ratio": 1.2556672096252441,
+     "believed_gain": 0.18682472221052665,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "approach"
+    },
+    {
+     "rho": -0.02733474643880044,
+     "drift_ratio": 1.2074860334396362,
+     "believed_gain": 0.3437679677296567,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": 0.2594182348955482,
+     "drift_ratio": 1.2454174757003784,
+     "believed_gain": 0.34082170511162024,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    }
+   ]
+  },
+  "dino_wm": {
+   "flags": {
+    "ambiguity": 22,
+    "drift": 36,
+    "n_fail": 36
+   },
+   "episodes": [
+    {
+     "rho": 0.3395943317588219,
+     "drift_ratio": 1.3671365976333618,
+     "believed_gain": 0.34032583998558996,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.9473684210526315,
+     "drift_ratio": 1.3271428346633911,
+     "believed_gain": 0.4306324396019314,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.916883116883117,
+     "drift_ratio": 1.2506036758422852,
+     "believed_gain": 0.32183082938962415,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.3048068908030009,
+     "drift_ratio": 1.5102572441101074,
+     "believed_gain": 0.40827243154196646,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.7218671853292582,
+     "drift_ratio": 1.2742079496383667,
+     "believed_gain": 0.41218351624707833,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.7683801055848849,
+     "drift_ratio": 1.378309726715088,
+     "believed_gain": 0.3499002578793985,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.7169769380383442,
+     "drift_ratio": 1.3598439693450928,
+     "believed_gain": 0.4103500322842951,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.13970907511940947,
+     "drift_ratio": 1.2793395519256592,
+     "believed_gain": 0.3060549096180628,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.21324041811846695,
+     "drift_ratio": 1.201629638671875,
+     "believed_gain": 0.3045739282892304,
+     "success": true,
+     "task": "turn_on_the_stove"
+    },
+    {
+     "rho": 0.5993331480966936,
+     "drift_ratio": 1.2788002490997314,
+     "believed_gain": 0.36742119902080117,
+     "success": false,
+     "task": "turn_on_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.012537356407479817,
+     "drift_ratio": 1.18613862991333,
+     "believed_gain": 0.6459816646194902,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "contact"
+    },
+    {
+     "rho": -0.06413087933506395,
+     "drift_ratio": 1.3552263975143433,
+     "believed_gain": 0.5675585728006786,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.4851382095541605,
+     "drift_ratio": 1.3805463314056396,
+     "believed_gain": 0.6118946206343638,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "contact"
+    },
+    {
+     "rho": -0.1860516810225063,
+     "drift_ratio": 1.4543266296386719,
+     "believed_gain": 0.5428450880631865,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.024359053042748924,
+     "drift_ratio": 1.359722375869751,
+     "believed_gain": 0.5598934126507087,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "contact"
+    },
+    {
+     "rho": 0.45287318064821647,
+     "drift_ratio": 1.2751518487930298,
+     "believed_gain": 0.5897848695913647,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.6942615045481035,
+     "drift_ratio": 1.2459490299224854,
+     "believed_gain": 0.5710394024177148,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "contact"
+    },
+    {
+     "rho": 0.1029477522974068,
+     "drift_ratio": 1.2888765335083008,
+     "believed_gain": 0.5320221959561983,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": -0.5533972541956905,
+     "drift_ratio": 1.2930681705474854,
+     "believed_gain": 0.5817440451969474,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "approach"
+    },
+    {
+     "rho": 0.22435717199712374,
+     "drift_ratio": 1.2118901014328003,
+     "believed_gain": 0.5588909106514885,
+     "success": false,
+     "task": "put_the_bowl_on_the_plate",
+     "category": "partial"
+    },
+    {
+     "rho": 0.3215497286948521,
+     "drift_ratio": 1.2229522466659546,
+     "believed_gain": 0.5046032877676738,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.6441567368331756,
+     "drift_ratio": 1.1926251649856567,
+     "believed_gain": 0.5327064130232955,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.5053122192958293,
+     "drift_ratio": 1.1453691720962524,
+     "believed_gain": 0.4514681711033264,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "contact"
+    },
+    {
+     "rho": -0.3050573270537427,
+     "drift_ratio": 1.2306016683578491,
+     "believed_gain": 0.4193826877752498,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.317415765400642,
+     "drift_ratio": 1.3478349447250366,
+     "believed_gain": 0.5158355899938254,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.4727874494572558,
+     "drift_ratio": 1.3897545337677002,
+     "believed_gain": 0.46986922265099273,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": -0.48615455021141174,
+     "drift_ratio": 1.2249910831451416,
+     "believed_gain": 0.5121788250848947,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.4323022812986881,
+     "drift_ratio": 1.245231032371521,
+     "believed_gain": 0.4647732839448471,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "contact"
+    },
+    {
+     "rho": 0.11492619514984675,
+     "drift_ratio": 1.2011947631835938,
+     "believed_gain": 0.5508405243408215,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": 0.10020334537954358,
+     "drift_ratio": 1.2022278308868408,
+     "believed_gain": 0.3767910077577824,
+     "success": false,
+     "task": "push_the_plate_to_the_front_of_the_stove",
+     "category": "approach"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.2529999017715454,
+     "believed_gain": 0.6503325143581907,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1903566122055054,
+     "believed_gain": 0.7518794316462563,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": -0.08083915038306107,
+     "drift_ratio": 1.1202709674835205,
+     "believed_gain": 0.6594595062871365,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1392779350280762,
+     "believed_gain": 0.7313131361755542,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.0990917682647705,
+     "believed_gain": 0.6828625353725892,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": 0.21029583588493794,
+     "drift_ratio": 1.2457515001296997,
+     "believed_gain": 0.7255125892612757,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1261330842971802,
+     "believed_gain": 0.6844570228464808,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1065568923950195,
+     "believed_gain": 0.5936911395352389,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": 0.33425518571360097,
+     "drift_ratio": 1.144149661064148,
+     "believed_gain": 0.7788617127470924,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    },
+    {
+     "rho": NaN,
+     "drift_ratio": 1.1253130435943604,
+     "believed_gain": 0.6997188609553375,
+     "success": false,
+     "task": "open_the_middle_drawer_of_the_cabinet",
+     "category": "contact"
+    }
+   ]
+  },
+  "tdmpc2": {
+   "flags": {
+    "ambiguity": 0,
+    "drift": 0,
+    "n_fail": 0
+   },
+   "episodes": []
+  },
+  "bc_resnet18": {
+   "flags": {
+    "ambiguity": 0,
+    "drift": 0,
+    "n_fail": 0
+   },
+   "episodes": []
+  }
+ }
+}

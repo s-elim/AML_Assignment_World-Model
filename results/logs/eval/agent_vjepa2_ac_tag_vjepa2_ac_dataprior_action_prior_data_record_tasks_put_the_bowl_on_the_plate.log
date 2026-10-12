@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+[vjepa2_ac_dataprior] Bowl-Plate ep 0 demo 2: success=False steps=300 err=15.2cm plan=6206ms wall=412s
+[vjepa2_ac_dataprior] Bowl-Plate ep 1 demo 4: success=False steps=300 err=15.2cm plan=6128ms wall=408s
+[vjepa2_ac_dataprior] Bowl-Plate ep 2 demo 10: success=False steps=300 err=15.4cm plan=6247ms wall=416s
+[vjepa2_ac_dataprior] Bowl-Plate ep 3 demo 11: success=False steps=300 err=11.5cm plan=6156ms wall=411s
+[vjepa2_ac_dataprior] Bowl-Plate ep 4 demo 22: success=False steps=300 err=15.7cm plan=6320ms wall=421s
+[vjepa2_ac_dataprior] Bowl-Plate ep 5 demo 27: success=False steps=300 err=13.9cm plan=6253ms wall=417s
+[vjepa2_ac_dataprior] Bowl-Plate ep 6 demo 28: success=False steps=300 err=13.5cm plan=6355ms wall=425s
+[vjepa2_ac_dataprior] Bowl-Plate ep 7 demo 31: success=False steps=300 err=14.1cm plan=6325ms wall=422s
+[vjepa2_ac_dataprior] Bowl-Plate ep 8 demo 38: success=False steps=300 err=14.9cm plan=6303ms wall=421s
+[vjepa2_ac_dataprior] Bowl-Plate ep 9 demo 41: success=False steps=300 err=13.6cm plan=6384ms wall=424s
+[vjepa2_ac_dataprior] Bowl-Plate: success 0.00

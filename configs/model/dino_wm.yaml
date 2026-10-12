@@ -1,13 +1,19 @@
+# DINO-WM predictor on frozen DINOv2 ViT-S/14 features (paper design at reduced scale).
+name: dino_wm
 model_type: dino_wm
-img_size: 224
-patch_size: 16
-embed_dim: 128
-action_dim: 4
-learning_rate: 1e-4
-weight_decay: 0.05
-batch_size: 16
-sequence_length: 4
-epochs: 10
-optimizer: adamw
-scheduler: cosine
-warmup_epochs: 2
+encoder: dinov2          # frozen
+embed_dim: 384
+num_hist: 3              # paper default history
+depth: 6                 # paper: 6
+heads: 6                 # paper: 16
+mlp_dim: 1536            # paper: 2048
+frameskip: 5             # paper: 5
+clip_frames: 4           # num_hist + 1
+batch_size: 64
+epochs: 40
+lr: 4.25e-4              # matched to V-JEPA 2-AC for a controlled comparison
+start_lr_frac: 0.176
+warmup_frac: 0.05
+weight_decay: 0.04
+grad_clip: 1.0
+seed: 0

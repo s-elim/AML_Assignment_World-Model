@@ -1,15 +1,18 @@
+# V-JEPA 2-AC predictor on frozen V-JEPA 2 ViT-L/16 features (release recipe at reduced scale).
+name: vjepa2_ac
 model_type: vjepa2_ac
-img_size: 224
-patch_size: 16
-embed_dim: 128
-predictor_embed_dim: 128
-predictor_depth: 4
-action_dim: 4
-learning_rate: 1e-4
-weight_decay: 0.05
-batch_size: 16
-sequence_length: 4
-epochs: 10
-optimizer: adamw
-scheduler: cosine
-warmup_epochs: 2
+encoder: vjepa2          # frozen, released vitl.pt target encoder
+embed_dim: 1024
+pred_dim: 384            # release: 1024
+depth: 6                 # release: 24
+auto_steps: 2            # release: 2 (two-step autoregressive rollout loss)
+frameskip: 5             # 20 Hz control -> 4 Hz model steps (release: 4 fps)
+clip_frames: 8           # release: 8 frames per clip
+batch_size: 64
+epochs: 40
+lr: 4.25e-4              # release peak
+start_lr_frac: 0.176     # release start 7.5e-5 / peak 4.25e-4
+warmup_frac: 0.05
+weight_decay: 0.04       # release
+grad_clip: 1.0
+seed: 0

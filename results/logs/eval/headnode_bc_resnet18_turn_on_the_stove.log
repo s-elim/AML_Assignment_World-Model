@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[bc_resnet18] Stove ep 0 demo 2: success=True steps=124 err=5.0cm plan=21ms wall=23s
+[bc_resnet18] Stove ep 1 demo 4: success=True steps=91 err=2.3cm plan=20ms wall=19s
+[bc_resnet18] Stove ep 2 demo 10: success=True steps=96 err=1.3cm plan=21ms wall=18s
+[bc_resnet18] Stove ep 3 demo 11: success=True steps=77 err=4.7cm plan=19ms wall=16s
+[bc_resnet18] Stove ep 4 demo 22: success=True steps=100 err=3.3cm plan=22ms wall=19s
+[bc_resnet18] Stove ep 5 demo 27: success=True steps=137 err=2.2cm plan=21ms wall=26s
+[bc_resnet18] Stove ep 6 demo 28: success=True steps=81 err=0.5cm plan=19ms wall=16s
+[bc_resnet18] Stove ep 7 demo 31: success=True steps=90 err=4.3cm plan=21ms wall=17s
+[bc_resnet18] Stove ep 8 demo 38: success=True steps=91 err=4.8cm plan=19ms wall=17s
+[bc_resnet18] Stove ep 9 demo 41: success=True steps=120 err=3.7cm plan=20ms wall=22s
+[bc_resnet18] Stove: success 1.00

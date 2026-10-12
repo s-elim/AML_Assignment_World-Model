@@ -1,7 +1,0 @@
-task_name: reach
-image_size: 224
-max_episode_steps: 50
-table_bounds: [-0.25, 0.25, -0.15, 0.25]
-action_dim: 4
-action_bounds: [-0.05, 0.05]
-success_threshold_cm: 3.5

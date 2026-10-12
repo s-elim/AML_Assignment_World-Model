@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+[vjepa2_ac_dataprior] Stove ep 0 demo 2: success=False steps=300 err=5.1cm plan=6208ms wall=412s
+[vjepa2_ac_dataprior] Stove ep 1 demo 4: success=False steps=300 err=8.2cm plan=6108ms wall=408s
+[vjepa2_ac_dataprior] Stove ep 2 demo 10: success=False steps=300 err=20.7cm plan=6240ms wall=416s
+[vjepa2_ac_dataprior] Stove ep 3 demo 11: success=False steps=300 err=17.6cm plan=6173ms wall=411s
+[vjepa2_ac_dataprior] Stove ep 4 demo 22: success=False steps=300 err=16.5cm plan=6345ms wall=422s
+[vjepa2_ac_dataprior] Stove ep 5 demo 27: success=False steps=300 err=50.8cm plan=6272ms wall=418s
+[vjepa2_ac_dataprior] Stove ep 6 demo 28: success=False steps=300 err=7.3cm plan=6417ms wall=426s
+[vjepa2_ac_dataprior] Stove ep 7 demo 31: success=False steps=300 err=30.0cm plan=6373ms wall=423s
+[vjepa2_ac_dataprior] Stove ep 8 demo 38: success=False steps=300 err=24.9cm plan=6339ms wall=423s
+[vjepa2_ac_dataprior] Stove ep 9 demo 41: success=False steps=300 err=3.8cm plan=6374ms wall=425s
+[vjepa2_ac_dataprior] Stove: success 0.00

@@ -1,0 +1,19 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[dino_wm_dataprior] Stove ep 0 demo 2: success=False steps=300 err=7.2cm plan=12910ms wall=805s
+[dino_wm_dataprior] Stove ep 1 demo 4: success=False steps=300 err=9.3cm plan=13064ms wall=814s
+[dino_wm_dataprior] Stove ep 2 demo 10: success=False steps=300 err=7.1cm plan=13187ms wall=822s
+[dino_wm_dataprior] Stove ep 3 demo 11: success=False steps=300 err=8.3cm plan=13499ms wall=841s
+[dino_wm_dataprior] Stove ep 4 demo 22: success=False steps=300 err=9.7cm plan=13472ms wall=839s
+[dino_wm_dataprior] Stove ep 5 demo 27: success=False steps=300 err=12.5cm plan=12502ms wall=779s
+[dino_wm_dataprior] Stove ep 6 demo 28: success=False steps=300 err=16.0cm plan=11414ms wall=712s
+[dino_wm_dataprior] Stove ep 7 demo 31: success=False steps=300 err=4.0cm plan=10463ms wall=651s
+[dino_wm_dataprior] Stove ep 8 demo 38: success=False steps=300 err=5.1cm plan=9960ms wall=620s
+[dino_wm_dataprior] Stove ep 9 demo 41: success=False steps=300 err=14.5cm plan=7015ms wall=438s
+[dino_wm_dataprior] Stove: success 0.00

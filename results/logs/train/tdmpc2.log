@@ -1,0 +1,44 @@
+tdmpc2: 5.57M params, gamma=0.950
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/src/models/tdmpc2.py:237: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return {"loss": float(loss), "consistency": float(cons), "reward": float(rl), "value": float(vl), "pi": float(pi_loss)}
+step 1000 loss 0.0511 cons 0.00030 rew 0.1000 val 0.3506 held-out cons 0.00022 89s
+step 2000 loss 0.0407 cons 0.00012 rew 0.0387 val 0.3438 held-out cons 0.00025 205s
+step 3000 loss 0.0425 cons 0.00013 rew 0.0350 val 0.3643 held-out cons 0.00030 321s
+step 4000 loss 0.0341 cons 0.00016 rew 0.0320 val 0.2775 held-out cons 0.00034 436s
+step 5000 loss 0.0342 cons 0.00018 rew 0.0298 val 0.2757 held-out cons 0.00036 552s
+step 6000 loss 0.0267 cons 0.00021 rew 0.0275 val 0.1970 held-out cons 0.00042 662s
+step 7000 loss 0.0309 cons 0.00023 rew 0.0266 val 0.2365 held-out cons 0.00047 775s
+step 8000 loss 0.0364 cons 0.00026 rew 0.0256 val 0.2875 held-out cons 0.00052 891s
+step 9000 loss 0.0317 cons 0.00026 rew 0.0239 val 0.2406 held-out cons 0.00061 1006s
+step 10000 loss 0.0267 cons 0.00027 rew 0.0232 val 0.1898 held-out cons 0.00065 1121s
+step 11000 loss 0.0279 cons 0.00028 rew 0.0225 val 0.2008 held-out cons 0.00062 1230s
+step 12000 loss 0.0285 cons 0.00028 rew 0.0218 val 0.2070 held-out cons 0.00064 1337s
+step 13000 loss 0.0278 cons 0.00028 rew 0.0215 val 0.1993 held-out cons 0.00071 1448s
+step 14000 loss 0.0291 cons 0.00029 rew 0.0218 val 0.2116 held-out cons 0.00070 1560s
+step 15000 loss 0.0299 cons 0.00029 rew 0.0212 val 0.2199 held-out cons 0.00062 1670s
+step 16000 loss 0.0292 cons 0.00030 rew 0.0211 val 0.2112 held-out cons 0.00070 1776s
+step 17000 loss 0.0279 cons 0.00030 rew 0.0210 val 0.1977 held-out cons 0.00089 1886s
+step 18000 loss 0.0276 cons 0.00030 rew 0.0208 val 0.1954 held-out cons 0.00071 1994s
+step 19000 loss 0.0278 cons 0.00029 rew 0.0205 val 0.1993 held-out cons 0.00079 2104s
+step 20000 loss 0.0295 cons 0.00030 rew 0.0206 val 0.2153 held-out cons 0.00081 2214s
+step 21000 loss 0.0284 cons 0.00029 rew 0.0205 val 0.2054 held-out cons 0.00084 2321s
+step 22000 loss 0.0293 cons 0.00029 rew 0.0205 val 0.2140 held-out cons 0.00083 2431s
+step 23000 loss 0.0299 cons 0.00029 rew 0.0201 val 0.2200 held-out cons 0.00091 2541s
+step 24000 loss 0.0289 cons 0.00029 rew 0.0199 val 0.2106 held-out cons 0.00084 2649s
+step 25000 loss 0.0285 cons 0.00029 rew 0.0202 val 0.2067 held-out cons 0.00098 2759s
+step 26000 loss 0.0279 cons 0.00029 rew 0.0199 val 0.2017 held-out cons 0.00091 2866s
+step 27000 loss 0.0274 cons 0.00029 rew 0.0198 val 0.1963 held-out cons 0.00094 2977s
+step 28000 loss 0.0272 cons 0.00029 rew 0.0200 val 0.1937 held-out cons 0.00081 3086s
+step 29000 loss 0.0271 cons 0.00028 rew 0.0196 val 0.1956 held-out cons 0.00098 3194s
+step 30000 loss 0.0272 cons 0.00029 rew 0.0197 val 0.1951 held-out cons 0.00090 3304s
+step 31000 loss 0.0272 cons 0.00028 rew 0.0198 val 0.1951 held-out cons 0.00115 3412s
+step 32000 loss 0.0277 cons 0.00029 rew 0.0198 val 0.2000 held-out cons 0.00102 3522s
+step 33000 loss 0.0273 cons 0.00028 rew 0.0196 val 0.1975 held-out cons 0.00110 3632s
+step 34000 loss 0.0277 cons 0.00028 rew 0.0197 val 0.2007 held-out cons 0.00101 3742s
+step 35000 loss 0.0276 cons 0.00028 rew 0.0195 val 0.2001 held-out cons 0.00114 3850s
+step 36000 loss 0.0274 cons 0.00028 rew 0.0195 val 0.1988 held-out cons 0.00103 3957s
+step 37000 loss 0.0273 cons 0.00028 rew 0.0195 val 0.1977 held-out cons 0.00104 4067s
+step 38000 loss 0.0273 cons 0.00028 rew 0.0195 val 0.1973 held-out cons 0.00107 4177s
+step 39000 loss 0.0278 cons 0.00029 rew 0.0196 val 0.2007 held-out cons 0.00109 4287s
+step 40000 loss 0.0274 cons 0.00028 rew 0.0193 val 0.1984 held-out cons 0.00109 4397s

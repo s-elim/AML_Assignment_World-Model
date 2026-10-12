@@ -1,0 +1,5 @@
+assets: /nas/Selim/selim_sarowar/GST-VLA/LIBERO/libero/libero/assets
+bddl_files: /nas/Selim/selim_sarowar/GST-VLA/LIBERO/libero/libero/bddl_files
+benchmark_root: /nas/Selim/selim_sarowar/GST-VLA/LIBERO/libero/libero
+datasets: /nas/Selim/selim_sarowar/GST-VLA/LIBERO/datasets
+init_states: /nas/Selim/selim_sarowar/GST-VLA/LIBERO/libero/libero/init_files

@@ -1,0 +1,19 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[dino_wm_dataprior] Bowl-Plate ep 0 demo 2: success=False steps=300 err=17.5cm plan=12986ms wall=809s
+[dino_wm_dataprior] Bowl-Plate ep 1 demo 4: success=False steps=300 err=10.0cm plan=13114ms wall=818s
+[dino_wm_dataprior] Bowl-Plate ep 2 demo 10: success=False steps=300 err=17.4cm plan=13245ms wall=827s
+[dino_wm_dataprior] Bowl-Plate ep 3 demo 11: success=False steps=300 err=14.2cm plan=13516ms wall=843s
+[dino_wm_dataprior] Bowl-Plate ep 4 demo 22: success=False steps=300 err=12.4cm plan=13515ms wall=842s
+[dino_wm_dataprior] Bowl-Plate ep 5 demo 27: success=False steps=300 err=12.8cm plan=12544ms wall=782s
+[dino_wm_dataprior] Bowl-Plate ep 6 demo 28: success=False steps=300 err=17.4cm plan=11484ms wall=716s
+[dino_wm_dataprior] Bowl-Plate ep 7 demo 31: success=False steps=300 err=18.7cm plan=10510ms wall=655s
+[dino_wm_dataprior] Bowl-Plate ep 8 demo 38: success=False steps=300 err=20.2cm plan=9983ms wall=622s
+[dino_wm_dataprior] Bowl-Plate ep 9 demo 41: success=False steps=300 err=7.9cm plan=6825ms wall=427s
+[dino_wm_dataprior] Bowl-Plate: success 0.00

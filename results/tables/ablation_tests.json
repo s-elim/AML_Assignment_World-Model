@@ -1,0 +1,106 @@
+{
+ "pHthree": {
+  "a": "abl_H3",
+  "b": "vjepa2_ac",
+  "ka": 9,
+  "kb": 2,
+  "n": 10,
+  "p": 0.0390625
+ },
+ "pHfive": {
+  "a": "abl_H5",
+  "b": "vjepa2_ac",
+  "ka": 5,
+  "kb": 2,
+  "n": 10,
+  "p": 0.375
+ },
+ "pPriorVjepa": {
+  "a": "vjepa2_ac_dataprior",
+  "b": "vjepa2_ac",
+  "ka": 0,
+  "kb": 2,
+  "n": 40,
+  "p": 0.5
+ },
+ "pPriorDino": {
+  "a": "dino_wm_dataprior",
+  "b": "dino_wm",
+  "ka": 0,
+  "kb": 4,
+  "n": 40,
+  "p": 0.125
+ },
+ "pBcDinoFrozen": {
+  "a": "bc_dinov2_frozen",
+  "b": "bc_resnet18",
+  "ka": 35,
+  "kb": 21,
+  "n": 40,
+  "p": 0.001312255859375
+ },
+ "pBcVjepaFrozen": {
+  "a": "bc_vjepa2_frozen",
+  "b": "bc_resnet18",
+  "ka": 25,
+  "kb": 21,
+  "n": 40,
+  "p": 0.3876953125
+ },
+ "pBcDinoFt": {
+  "a": "bc_dinov2_finetune",
+  "b": "bc_resnet18",
+  "ka": 35,
+  "kb": 21,
+  "n": 40,
+  "p": 0.001312255859375
+ },
+ "pBcWrist": {
+  "a": "bc_resnet18_wrist",
+  "b": "bc_resnet18",
+  "ka": 38,
+  "kb": 21,
+  "n": 40,
+  "p": 1.52587890625e-05
+ },
+ "pBcVjepaVsDino": {
+  "a": "bc_vjepa2_frozen",
+  "b": "bc_dinov2_frozen",
+  "ka": 25,
+  "kb": 35,
+  "n": 40,
+  "p": 0.012939453125
+ },
+ "pHthreeAllVjepa": {
+  "a": "vjepa2_ac_H3",
+  "b": "vjepa2_ac",
+  "ka": 9,
+  "kb": 2,
+  "n": 40,
+  "p": 0.0390625
+ },
+ "pHthreeAllDino": {
+  "a": "dino_wm_H3",
+  "b": "dino_wm",
+  "ka": 5,
+  "kb": 4,
+  "n": 40,
+  "p": 1.0
+ },
+ "pHthreeVjepaVsBc": {
+  "a": "vjepa2_ac_H3",
+  "b": "bc_resnet18",
+  "ka": 9,
+  "kb": 21,
+  "n": 40,
+  "p": 0.00048828125
+ },
+ "pHthreeDinoVsBc": {
+  "a": "dino_wm_H3",
+  "b": "bc_resnet18",
+  "ka": 5,
+  "kb": 21,
+  "n": 40,
+  "p": 3.0517578125e-05
+ }
+}

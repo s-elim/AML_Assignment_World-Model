@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+[vjepa2_ac_H3] Drawer ep 0 demo 2: success=False steps=300 err=15.5cm plan=1184ms wall=91s
+[vjepa2_ac_H3] Drawer ep 1 demo 4: success=False steps=300 err=16.0cm plan=1146ms wall=86s
+[vjepa2_ac_H3] Drawer ep 2 demo 10: success=False steps=300 err=16.0cm plan=1175ms wall=91s
+[vjepa2_ac_H3] Drawer ep 3 demo 11: success=False steps=300 err=16.0cm plan=1075ms wall=83s
+[vjepa2_ac_H3] Drawer ep 4 demo 22: success=False steps=300 err=15.6cm plan=1091ms wall=85s
+[vjepa2_ac_H3] Drawer ep 5 demo 27: success=False steps=300 err=16.0cm plan=1004ms wall=80s
+[vjepa2_ac_H3] Drawer ep 6 demo 28: success=False steps=300 err=16.1cm plan=994ms wall=78s
+[vjepa2_ac_H3] Drawer ep 7 demo 31: success=False steps=300 err=16.1cm plan=1039ms wall=81s
+[vjepa2_ac_H3] Drawer ep 8 demo 38: success=False steps=300 err=15.6cm plan=1010ms wall=79s
+[vjepa2_ac_H3] Drawer ep 9 demo 41: success=False steps=300 err=16.0cm plan=957ms wall=76s
+[vjepa2_ac_H3] Drawer: success 0.00

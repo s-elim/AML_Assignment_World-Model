@@ -1,0 +1,48 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+vjepa2_ac: 11.44M params, 13401 train clips, 3593 held-out clips, 8360 steps, state-integrator R2=0.7122675913271193
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/scripts/train_world_model.py:129: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  run += float(out["loss"])
+epoch 1/40 train 0.7499 held-out 0.5061 29s
+epoch 2/40 train 0.4519 held-out 0.4268 56s
+epoch 3/40 train 0.4046 held-out 0.4008 85s
+epoch 4/40 train 0.3843 held-out 0.3879 112s
+epoch 5/40 train 0.3715 held-out 0.3793 140s
+epoch 6/40 train 0.3619 held-out 0.3734 167s
+epoch 7/40 train 0.3541 held-out 0.3702 195s
+epoch 8/40 train 0.3472 held-out 0.3675 222s
+epoch 9/40 train 0.3412 held-out 0.3662 250s
+epoch 10/40 train 0.3354 held-out 0.3657 277s
+epoch 11/40 train 0.3302 held-out 0.3654 305s
+epoch 12/40 train 0.3252 held-out 0.3657 327s
+epoch 13/40 train 0.3207 held-out 0.3659 350s
+epoch 14/40 train 0.3163 held-out 0.3671 373s
+epoch 15/40 train 0.3124 held-out 0.3685 396s
+epoch 16/40 train 0.3088 held-out 0.3684 418s
+epoch 17/40 train 0.3053 held-out 0.3698 441s
+epoch 18/40 train 0.3021 held-out 0.3707 464s
+epoch 19/40 train 0.2991 held-out 0.3721 485s
+epoch 20/40 train 0.2963 held-out 0.3734 505s
+epoch 21/40 train 0.2935 held-out 0.3737 527s
+epoch 22/40 train 0.2911 held-out 0.3747 551s
+epoch 23/40 train 0.2888 held-out 0.3754 577s
+epoch 24/40 train 0.2866 held-out 0.3765 601s
+epoch 25/40 train 0.2845 held-out 0.3783 627s
+epoch 26/40 train 0.2824 held-out 0.3786 652s
+epoch 27/40 train 0.2807 held-out 0.3794 678s
+epoch 28/40 train 0.2790 held-out 0.3798 703s
+epoch 29/40 train 0.2774 held-out 0.3807 728s
+epoch 30/40 train 0.2760 held-out 0.3813 753s
+epoch 31/40 train 0.2748 held-out 0.3824 778s
+epoch 32/40 train 0.2736 held-out 0.3830 801s
+epoch 33/40 train 0.2726 held-out 0.3833 820s
+epoch 34/40 train 0.2718 held-out 0.3840 847s
+epoch 35/40 train 0.2711 held-out 0.3842 874s
+epoch 36/40 train 0.2706 held-out 0.3847 901s
+epoch 37/40 train 0.2701 held-out 0.3849 929s
+epoch 38/40 train 0.2698 held-out 0.3851 956s
+epoch 39/40 train 0.2696 held-out 0.3852 984s
+epoch 40/40 train 0.2695 held-out 0.3852 1011s

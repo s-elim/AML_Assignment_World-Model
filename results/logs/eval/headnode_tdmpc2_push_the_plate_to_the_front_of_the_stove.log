@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[tdmpc2] Push-Plate ep 0 demo 2: success=False steps=300 err=26.1cm plan=198ms wall=65s
+[tdmpc2] Push-Plate ep 1 demo 4: success=False steps=300 err=23.7cm plan=205ms wall=66s
+[tdmpc2] Push-Plate ep 2 demo 10: success=False steps=300 err=24.7cm plan=203ms wall=69s
+[tdmpc2] Push-Plate ep 3 demo 11: success=False steps=300 err=24.7cm plan=200ms wall=68s
+[tdmpc2] Push-Plate ep 4 demo 22: success=False steps=300 err=25.6cm plan=213ms wall=70s
+[tdmpc2] Push-Plate ep 5 demo 27: success=False steps=300 err=23.1cm plan=208ms wall=70s
+[tdmpc2] Push-Plate ep 6 demo 28: success=False steps=300 err=25.8cm plan=204ms wall=68s
+[tdmpc2] Push-Plate ep 7 demo 31: success=False steps=300 err=24.6cm plan=208ms wall=70s
+[tdmpc2] Push-Plate ep 8 demo 38: success=False steps=300 err=25.1cm plan=211ms wall=71s
+[tdmpc2] Push-Plate ep 9 demo 41: success=False steps=300 err=25.2cm plan=208ms wall=69s
+[tdmpc2] Push-Plate: success 0.00

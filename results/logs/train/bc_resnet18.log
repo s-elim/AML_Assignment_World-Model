@@ -1,0 +1,34 @@
+bc_resnet18: 11.76M trainable params, 18841 train frames
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/scripts/train_bc.py:105: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  run += float(loss)
+epoch 1/30 train nll 2.509 held-out nll -1.894 mse 0.1159 5s
+epoch 2/30 train nll -3.628 held-out nll -4.225 mse 0.0738 11s
+epoch 3/30 train nll -5.502 held-out nll -5.558 mse 0.0755 23s
+epoch 4/30 train nll -6.680 held-out nll -6.709 mse 0.0829 58s
+epoch 5/30 train nll -7.442 held-out nll -7.357 mse 0.0785 100s
+epoch 6/30 train nll -7.678 held-out nll -6.777 mse 0.0724 143s
+epoch 7/30 train nll -8.152 held-out nll -7.228 mse 0.0684 186s
+epoch 8/30 train nll -8.506 held-out nll -7.690 mse 0.0667 229s
+epoch 9/30 train nll -8.731 held-out nll -7.994 mse 0.0637 271s
+epoch 10/30 train nll -9.008 held-out nll -8.034 mse 0.0614 314s
+epoch 11/30 train nll -8.705 held-out nll -8.082 mse 0.0599 357s
+epoch 12/30 train nll -9.004 held-out nll -7.606 mse 0.0577 399s
+epoch 13/30 train nll -9.295 held-out nll -7.895 mse 0.0559 441s
+epoch 14/30 train nll -9.503 held-out nll -8.007 mse 0.0551 484s
+epoch 15/30 train nll -9.730 held-out nll -8.100 mse 0.0532 527s
+epoch 16/30 train nll -9.981 held-out nll -8.059 mse 0.0509 569s
+epoch 17/30 train nll -9.975 held-out nll -7.816 mse 0.0512 609s
+epoch 18/30 train nll -10.190 held-out nll -8.022 mse 0.0487 652s
+epoch 19/30 train nll -10.414 held-out nll -7.960 mse 0.0480 690s
+epoch 20/30 train nll -10.553 held-out nll -7.995 mse 0.0462 732s
+epoch 21/30 train nll -10.717 held-out nll -7.652 mse 0.0432 775s
+epoch 22/30 train nll -10.833 held-out nll -7.254 mse 0.0420 818s
+epoch 23/30 train nll -10.916 held-out nll -7.629 mse 0.0405 861s
+epoch 24/30 train nll -11.018 held-out nll -7.516 mse 0.0395 903s
+epoch 25/30 train nll -11.095 held-out nll -7.523 mse 0.0384 946s
+epoch 26/30 train nll -11.137 held-out nll -7.178 mse 0.0377 988s
+epoch 27/30 train nll -11.184 held-out nll -7.191 mse 0.0380 1030s
+epoch 28/30 train nll -11.208 held-out nll -7.123 mse 0.0380 1073s
+epoch 29/30 train nll -11.256 held-out nll -7.011 mse 0.0364 1116s
+epoch 30/30 train nll -11.239 held-out nll -6.941 mse 0.0363 1157s

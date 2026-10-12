@@ -1,0 +1,46 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+dino_wm: 11.27M params, 16601 train clips, 4393 held-out clips, 10360 steps, state-integrator R2=None
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/scripts/train_world_model.py:129: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  run += float(out["loss"])
+epoch 1/40 train 0.0913 held-out 0.0609 8s
+epoch 2/40 train 0.0563 held-out 0.0525 16s
+epoch 3/40 train 0.0492 held-out 0.0490 23s
+epoch 4/40 train 0.0443 held-out 0.0449 31s
+epoch 5/40 train 0.0408 held-out 0.0425 38s
+epoch 6/40 train 0.0383 held-out 0.0410 46s
+epoch 7/40 train 0.0363 held-out 0.0389 54s
+epoch 8/40 train 0.0344 held-out 0.0381 61s
+epoch 9/40 train 0.0332 held-out 0.0378 68s
+epoch 10/40 train 0.0319 held-out 0.0371 75s
+epoch 11/40 train 0.0307 held-out 0.0365 82s
+epoch 12/40 train 0.0296 held-out 0.0364 90s
+epoch 13/40 train 0.0286 held-out 0.0356 97s
+epoch 14/40 train 0.0277 held-out 0.0353 105s
+epoch 15/40 train 0.0268 held-out 0.0353 112s
+epoch 16/40 train 0.0261 held-out 0.0350 120s
+epoch 17/40 train 0.0253 held-out 0.0349 127s
+epoch 18/40 train 0.0246 held-out 0.0350 135s
+epoch 19/40 train 0.0240 held-out 0.0349 142s
+epoch 20/40 train 0.0234 held-out 0.0347 150s
+epoch 21/40 train 0.0227 held-out 0.0347 157s
+epoch 22/40 train 0.0222 held-out 0.0344 165s
+epoch 23/40 train 0.0217 held-out 0.0347 172s
+epoch 24/40 train 0.0211 held-out 0.0349 180s
+epoch 25/40 train 0.0207 held-out 0.0347 187s
+epoch 26/40 train 0.0202 held-out 0.0348 195s
+epoch 27/40 train 0.0198 held-out 0.0349 202s
+epoch 28/40 train 0.0194 held-out 0.0349 210s
+epoch 29/40 train 0.0190 held-out 0.0349 217s
+epoch 30/40 train 0.0187 held-out 0.0351 225s
+epoch 31/40 train 0.0184 held-out 0.0350 232s
+epoch 32/40 train 0.0181 held-out 0.0352 240s
+epoch 33/40 train 0.0179 held-out 0.0353 247s
+epoch 34/40 train 0.0177 held-out 0.0354 255s
+epoch 35/40 train 0.0176 held-out 0.0354 262s
+epoch 36/40 train 0.0175 held-out 0.0355 270s
+epoch 37/40 train 0.0174 held-out 0.0355 277s
+epoch 38/40 train 0.0173 held-out 0.0355 285s
+epoch 39/40 train 0.0173 held-out 0.0355 292s
+epoch 40/40 train 0.0172 held-out 0.0355 300s

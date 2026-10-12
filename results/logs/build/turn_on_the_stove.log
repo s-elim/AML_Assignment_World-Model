@@ -1,0 +1,56 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+turn_on_the_stove demo 0 T=81 success=True 18s
+turn_on_the_stove demo 1 T=97 success=True 40s
+turn_on_the_stove demo 2 T=90 success=True 63s
+turn_on_the_stove demo 3 T=87 success=True 83s
+turn_on_the_stove demo 4 T=94 success=True 105s
+turn_on_the_stove demo 5 T=93 success=True 125s
+turn_on_the_stove demo 6 T=95 success=True 144s
+turn_on_the_stove demo 7 T=97 success=True 161s
+turn_on_the_stove demo 8 T=87 success=True 179s
+turn_on_the_stove demo 9 T=78 success=True 199s
+turn_on_the_stove demo 10 T=98 success=True 223s
+turn_on_the_stove demo 11 T=89 success=True 244s
+turn_on_the_stove demo 12 T=104 success=True 268s
+turn_on_the_stove demo 13 T=91 success=True 289s
+turn_on_the_stove demo 14 T=90 success=True 310s
+turn_on_the_stove demo 15 T=100 success=True 334s
+turn_on_the_stove demo 16 T=92 success=True 359s
+turn_on_the_stove demo 17 T=87 success=True 381s
+turn_on_the_stove demo 18 T=78 success=True 402s
+turn_on_the_stove demo 19 T=82 success=True 423s
+turn_on_the_stove demo 20 T=86 success=True 447s
+turn_on_the_stove demo 21 T=89 success=True 470s
+turn_on_the_stove demo 22 T=80 success=True 491s
+turn_on_the_stove demo 23 T=93 success=True 514s
+turn_on_the_stove demo 24 T=93 success=True 538s
+turn_on_the_stove demo 25 T=91 success=True 559s
+turn_on_the_stove demo 26 T=86 success=True 580s
+turn_on_the_stove demo 27 T=101 success=True 603s
+turn_on_the_stove demo 28 T=96 success=True 625s
+turn_on_the_stove demo 29 T=97 success=True 648s
+turn_on_the_stove demo 30 T=96 success=True 673s
+turn_on_the_stove demo 31 T=82 success=True 692s
+turn_on_the_stove demo 32 T=86 success=True 712s
+turn_on_the_stove demo 33 T=80 success=True 731s
+turn_on_the_stove demo 34 T=76 success=True 750s
+turn_on_the_stove demo 35 T=87 success=True 772s
+turn_on_the_stove demo 36 T=85 success=True 795s
+turn_on_the_stove demo 37 T=86 success=True 815s
+turn_on_the_stove demo 38 T=91 success=True 839s
+turn_on_the_stove demo 39 T=94 success=True 861s
+turn_on_the_stove demo 40 T=97 success=True 885s
+turn_on_the_stove demo 41 T=97 success=True 908s
+turn_on_the_stove demo 42 T=88 success=True 931s
+turn_on_the_stove demo 43 T=94 success=True 953s
+turn_on_the_stove demo 44 T=120 success=True 981s
+turn_on_the_stove demo 45 T=80 success=True 1001s
+turn_on_the_stove demo 46 T=94 success=True 1025s
+turn_on_the_stove demo 47 T=78 success=True 1044s
+turn_on_the_stove demo 48 T=86 success=True 1066s
+turn_on_the_stove demo 49 T=91 success=True 1089s

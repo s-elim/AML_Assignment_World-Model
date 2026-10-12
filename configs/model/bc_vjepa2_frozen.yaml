@@ -1,0 +1,12 @@
+# Behaviour cloning (vjepa2_frozen), Gaussian NLL on 7-D macro actions.
+name: bc_vjepa2_frozen
+model_type: bc
+backbone: vjepa2_frozen
+wrist: false
+frameskip: 5
+batch_size: 64
+epochs: 30
+lr: 3.0e-4
+backbone_lr_scale: 1.0
+weight_decay: 1.0e-4
+seed: 0

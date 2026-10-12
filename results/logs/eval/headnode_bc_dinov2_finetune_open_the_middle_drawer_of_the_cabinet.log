@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 11040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[bc_dinov2_finetune] Drawer ep 0 demo 2: success=False steps=300 err=15.5cm plan=82ms wall=56s
+[bc_dinov2_finetune] Drawer ep 1 demo 4: success=True steps=117 err=1.6cm plan=82ms wall=23s
+[bc_dinov2_finetune] Drawer ep 2 demo 10: success=True steps=137 err=1.5cm plan=84ms wall=28s
+[bc_dinov2_finetune] Drawer ep 3 demo 11: success=True steps=118 err=1.4cm plan=81ms wall=24s
+[bc_dinov2_finetune] Drawer ep 4 demo 22: success=False steps=300 err=15.6cm plan=82ms wall=57s
+[bc_dinov2_finetune] Drawer ep 5 demo 27: success=False steps=300 err=16.2cm plan=80ms wall=52s
+[bc_dinov2_finetune] Drawer ep 6 demo 28: success=False steps=300 err=16.2cm plan=75ms wall=49s
+[bc_dinov2_finetune] Drawer ep 7 demo 31: success=True steps=118 err=1.8cm plan=73ms wall=20s
+[bc_dinov2_finetune] Drawer ep 8 demo 38: success=True steps=142 err=1.4cm plan=68ms wall=25s
+[bc_dinov2_finetune] Drawer ep 9 demo 41: success=False steps=300 err=16.1cm plan=64ms wall=46s
+[bc_dinov2_finetune] Drawer: success 0.50

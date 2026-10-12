@@ -1,0 +1,56 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+push_the_plate_to_the_front_of_the_stove demo 0 T=156 success=True 28s
+push_the_plate_to_the_front_of_the_stove demo 1 T=129 success=True 54s
+push_the_plate_to_the_front_of_the_stove demo 2 T=126 success=True 78s
+push_the_plate_to_the_front_of_the_stove demo 3 T=201 success=True 120s
+push_the_plate_to_the_front_of_the_stove demo 4 T=194 success=True 155s
+push_the_plate_to_the_front_of_the_stove demo 5 T=118 success=True 174s
+push_the_plate_to_the_front_of_the_stove demo 6 T=155 success=True 203s
+push_the_plate_to_the_front_of_the_stove demo 7 T=124 success=True 228s
+push_the_plate_to_the_front_of_the_stove demo 8 T=140 success=True 257s
+push_the_plate_to_the_front_of_the_stove demo 9 T=147 success=True 291s
+push_the_plate_to_the_front_of_the_stove demo 10 T=216 success=True 335s
+push_the_plate_to_the_front_of_the_stove demo 11 T=145 success=True 370s
+push_the_plate_to_the_front_of_the_stove demo 12 T=143 success=True 404s
+push_the_plate_to_the_front_of_the_stove demo 13 T=152 success=True 440s
+push_the_plate_to_the_front_of_the_stove demo 14 T=179 success=True 481s
+push_the_plate_to_the_front_of_the_stove demo 15 T=137 success=True 512s
+push_the_plate_to_the_front_of_the_stove demo 16 T=207 success=True 558s
+push_the_plate_to_the_front_of_the_stove demo 17 T=135 success=True 587s
+push_the_plate_to_the_front_of_the_stove demo 18 T=168 success=True 622s
+push_the_plate_to_the_front_of_the_stove demo 19 T=164 success=True 658s
+push_the_plate_to_the_front_of_the_stove demo 20 T=176 success=True 695s
+push_the_plate_to_the_front_of_the_stove demo 21 T=150 success=True 726s
+push_the_plate_to_the_front_of_the_stove demo 22 T=148 success=True 759s
+push_the_plate_to_the_front_of_the_stove demo 23 T=130 success=True 791s
+push_the_plate_to_the_front_of_the_stove demo 24 T=170 success=True 826s
+push_the_plate_to_the_front_of_the_stove demo 25 T=154 success=True 859s
+push_the_plate_to_the_front_of_the_stove demo 26 T=146 success=True 894s
+push_the_plate_to_the_front_of_the_stove demo 27 T=221 success=True 941s
+push_the_plate_to_the_front_of_the_stove demo 28 T=148 success=True 974s
+push_the_plate_to_the_front_of_the_stove demo 29 T=137 success=True 1007s
+push_the_plate_to_the_front_of_the_stove demo 30 T=143 success=True 1038s
+push_the_plate_to_the_front_of_the_stove demo 31 T=136 success=True 1070s
+push_the_plate_to_the_front_of_the_stove demo 32 T=116 success=True 1096s
+push_the_plate_to_the_front_of_the_stove demo 33 T=127 success=True 1123s
+push_the_plate_to_the_front_of_the_stove demo 34 T=155 success=True 1155s
+push_the_plate_to_the_front_of_the_stove demo 35 T=170 success=True 1190s
+push_the_plate_to_the_front_of_the_stove demo 36 T=146 success=True 1223s
+push_the_plate_to_the_front_of_the_stove demo 37 T=204 success=True 1267s
+push_the_plate_to_the_front_of_the_stove demo 38 T=135 success=True 1296s
+push_the_plate_to_the_front_of_the_stove demo 39 T=147 success=True 1326s
+push_the_plate_to_the_front_of_the_stove demo 40 T=129 success=True 1355s
+push_the_plate_to_the_front_of_the_stove demo 41 T=189 success=True 1397s
+push_the_plate_to_the_front_of_the_stove demo 42 T=131 success=True 1426s
+push_the_plate_to_the_front_of_the_stove demo 43 T=183 success=True 1467s
+push_the_plate_to_the_front_of_the_stove demo 44 T=144 success=True 1500s
+push_the_plate_to_the_front_of_the_stove demo 45 T=133 success=True 1527s
+push_the_plate_to_the_front_of_the_stove demo 46 T=139 success=True 1557s
+push_the_plate_to_the_front_of_the_stove demo 47 T=142 success=True 1589s
+push_the_plate_to_the_front_of_the_stove demo 48 T=184 success=True 1628s
+push_the_plate_to_the_front_of_the_stove demo 49 T=119 success=True 1654s

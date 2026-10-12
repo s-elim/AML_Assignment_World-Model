@@ -1,0 +1,37 @@
+{
+ "vjepaTwoacStove": {
+  "rho": 0.1633924942419726,
+  "energy_range_pct": 5.416200432242838,
+  "true_min": 25.19542845882562,
+  "true_max": 28.325132433959272,
+  "true_at_energy_min": 28.0697286250226
+ },
+ "vjepaTwoacStoveHthree": {
+  "rho": 0.5741295217450209,
+  "energy_range_pct": 10.702742244525325,
+  "true_min": 22.784984611749287,
+  "true_max": 35.31832914730884,
+  "true_at_energy_min": 26.493628655036805
+ },
+ "dinowmStove": {
+  "rho": 0.35846091315539885,
+  "energy_range_pct": 35.151877435998884,
+  "true_min": 2.758448885868516,
+  "true_max": 16.808442451155056,
+  "true_at_energy_min": 11.699276777986173
+ },
+ "vjepaTwoacPushPlate": {
+  "rho": NaN,
+  "energy_range_pct": 1.0876004621545667,
+  "true_min": 26.115673930443528,
+  "true_max": 26.115673930446043,
+  "true_at_energy_min": 26.115673930446043
+ },
+ "dinowmPushPlate": {
+  "rho": NaN,
+  "energy_range_pct": 67.384410547776,
+  "true_min": 26.115673930446043,
+  "true_max": 26.115673930446043,
+  "true_at_energy_min": 26.115673930446043
+ }
+}

@@ -1,12 +1,13 @@
+# TD-MPC2, 5M-parameter configuration, trained offline on the demonstrations with sparse success reward.
+name: tdmpc2
 model_type: tdmpc2
-img_size: 224
-latent_dim: 64
-action_dim: 4
-learning_rate: 3e-4
-weight_decay: 0.01
-batch_size: 16
-sequence_length: 4
-epochs: 10
-optimizer: adamw
-scheduler: cosine
-warmup_epochs: 2
+frameskip: 5
+frame_stack: 3           # paper (pixels)
+horizon: 3               # paper training horizon
+batch_size: 256          # paper
+updates: 40000
+lr: 3.0e-4               # paper
+enc_lr_scale: 0.3        # paper
+max_env_steps: 300       # sets the discount by the paper's heuristic -> 0.95
+log_every: 1000
+seed: 0

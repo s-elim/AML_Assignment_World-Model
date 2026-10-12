@@ -1,0 +1,21 @@
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /nas/Selim/selim_sarowar/AML_Assignment_World-Model/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/nas/Selim/selim_sarowar/AML_Assignment_World-Model/.python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+[abl_H15] Stove ep 0 demo 2: success=True steps=152 err=18.8cm plan=8985ms wall=293s
+[abl_H15] Stove ep 1 demo 4: success=False steps=300 err=101.5cm plan=8834ms wall=559s
+[abl_H15] Stove ep 2 demo 10: success=False steps=300 err=74.1cm plan=8953ms wall=567s
+[abl_H15] Stove ep 3 demo 11: success=False steps=300 err=44.9cm plan=9103ms wall=575s
+[abl_H15] Stove ep 4 demo 22: success=True steps=210 err=5.9cm plan=9118ms wall=404s
+[abl_H15] Stove ep 5 demo 27: success=False steps=300 err=78.2cm plan=9182ms wall=580s
+[abl_H15] Stove ep 6 demo 28: success=False steps=300 err=26.8cm plan=9252ms wall=586s
+[abl_H15] Stove ep 7 demo 31: success=True steps=84 err=9.7cm plan=9157ms wall=164s
+[abl_H15] Stove ep 8 demo 38: success=False steps=300 err=78.4cm plan=8966ms wall=567s
+[abl_H15] Stove ep 9 demo 41: success=False steps=300 err=10.6cm plan=8736ms wall=553s
+[abl_H15] Stove: success 0.30

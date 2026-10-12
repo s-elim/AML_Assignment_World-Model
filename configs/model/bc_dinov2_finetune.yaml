@@ -1,0 +1,12 @@
+# Behaviour cloning (dinov2_finetune), Gaussian NLL on 7-D macro actions.
+name: bc_dinov2_finetune
+model_type: bc
+backbone: dinov2_finetune
+wrist: false
+frameskip: 5
+batch_size: 64
+epochs: 30
+lr: 3.0e-4
+backbone_lr_scale: 0.1
+weight_decay: 1.0e-4
+seed: 0
