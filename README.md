@@ -1,4 +1,4 @@
-# Latent World Model as Robot Foundation Model
+# Latent World Models as Robot Foundation Models
 
 Assignment 2 (Setting 3, simulator-based evaluation) for the research area of Assignment 1:
 *learned world models used as pretrained foundation models for robot control*.
@@ -21,6 +21,7 @@ added wrist camera form the representation ablation.
 ```
 configs/
   model/*.yaml              one file per trained model (all hyperparameters, seed 0)
+                            (planner settings: CEMConfig in src/planning/cem.py and the evaluate.py flags)
 src/
   env/libero_env.py         Gymnasium wrapper: 4 LIBERO-Goal tasks, 4 Hz macro steps, goal error in cm
   data/libero_data.py       demonstration loading, macro-step clips, state normalisation
@@ -92,7 +93,7 @@ Then `export LIBERO_ROOT=/path/to/LIBERO` (default: `./LIBERO`). The code writes
 | Tasks | `turn_on_the_stove`, `put_the_bowl_on_the_plate`, `push_the_plate_to_the_front_of_the_stove`, `open_the_middle_drawer_of_the_cabinet` |
 | Observations | agent-view and wrist RGB 128x128, 7-D proprioception (end-effector position, axis-angle, finger opening) |
 | Actions | LIBERO OSC_POSE, 7-D in [-1, 1] (position offset up to 0.05 m, rotation up to 0.5 rad, gripper) |
-| Split | 40 training / 10 test demonstrations per task, fixed by seed 0 (`<task>__meta.json`) |
+| Split | 40 training / 10 test demonstrations per task, fixed by seed 0 (`<task>__meta.json`); no validation split, because no checkpoint or hyperparameter is selected on held-out data (held-out losses are logged for monitoring only) |
 | Preprocessing | frames re-rendered from the stored MuJoCo states with the evaluation renderer; 5 control steps per model step (4 Hz); macro action = mean of the 5 primitive actions |
 
 ```bash
@@ -151,6 +152,8 @@ The full configuration of every model is in `configs/model/`. Shared settings:
 | Setting | Value |
 | --- | --- |
 | Seed | 0 (data split, initialisation, minibatch order, planner sampling, evaluation) |
+| Input | agent-view 128x128 RGB + 7-D state; upsampled to 256x256 (V-JEPA 2) or 224x224 (DINOv2); TD-MPC2 stacks 3 frames at 64x64; BC and TD-MPC2 also receive the task identity |
+| Loss | V-JEPA 2-AC: L1 teacher forcing + L1 two-step rollout; DINO-WM: MSE on the next-frame visual and proprioceptive embedding; TD-MPC2: 20 x consistency + 0.1 x reward + 0.1 x value, plus the policy-prior objective; BC: Gaussian negative log-likelihood |
 | Optimiser | AdamW (world models, BC), Adam (TD-MPC2, as in the paper) |
 | World-model training | 40 epochs, batch 64 clips, peak LR 4.25e-4, warm-up 5%, cosine decay, weight decay 0.04 |
 | TD-MPC2 training | 40,000 updates, batch 256, LR 3e-4 (encoder x0.3), horizon 3 |
@@ -159,7 +162,8 @@ The full configuration of every model is in `configs/model/`. Shared settings:
 | Planner (latent models) | CEM, horizon 10 model steps (2.5 s), 256 samples, 10 iterations, 5% elites, momentum 0.15 |
 | Planner (TD-MPC2) | MPPI, horizon 3, 512 samples, 64 elites, 24 policy samples, 6 iterations |
 | Episode | starts at the first state of a held-out demonstration, goal frame from its final state, 300 control steps maximum |
-| Metrics | success (LIBERO BDDL predicate), final goal error (cm), return, steps to success, planning latency, peak VRAM |
+| Metrics | success (LIBERO BDDL predicate), return (equal to success under LIBERO's sparse reward), final goal error (cm), steps to success, convergence (training and held-out curves in `results/logs/`), planning latency, peak VRAM; collisions are not instrumented in LIBERO, so no safety metric is reported |
+| Software | Python 3.11.16, PyTorch 2.11.0 (CUDA 12.8), timm 1.0.30, MuJoCo 2.3.7, robosuite 1.4.0, LIBERO commit `8145de4`, NumPy 1.26.4, Gymnasium 1.4.0 |
 
 ## 5. Results
 
