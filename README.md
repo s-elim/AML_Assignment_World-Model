@@ -20,7 +20,6 @@ added wrist camera form the representation ablation.
 
 ```
 configs/
-  libero/config.yaml        LIBERO path configuration (points at a LIBERO clone)
   model/*.yaml              one file per trained model (all hyperparameters, seed 0)
 src/
   env/libero_env.py         Gymnasium wrapper: 4 LIBERO-Goal tasks, 4 Hz macro steps, goal error in cm
@@ -71,7 +70,8 @@ git clone https://github.com/Lifelong-Robot-Learning/LIBERO.git /path/to/LIBERO
 cd /path/to/LIBERO && python benchmark_scripts/download_libero_datasets.py --datasets libero_goal
 ```
 
-Then set `LIBERO_ROOT=/path/to/LIBERO` and edit the five paths in `configs/libero/config.yaml`.
+Then `export LIBERO_ROOT=/path/to/LIBERO` (default: `./LIBERO`). The code writes LIBERO's path config to
+`.libero/config.yaml` from it, so nothing else needs editing.
 
 **Rendering.** MuJoCo renders offscreen: `export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl` on a GPU machine, or
 `MUJOCO_GL=osmesa PYOPENGL_PLATFORM=osmesa` with an OSMesa build on `LD_LIBRARY_PATH` on a CPU machine.

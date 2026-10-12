@@ -4,7 +4,7 @@ import numpy as np
 import torch
 
 
-def set_seed(seed: int = 42) -> None:
+def set_seed(seed: int = 0) -> None:
     """Seed Python, NumPy and PyTorch; on CUDA, also make cuDNN deterministic and disable its autotuner."""
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)

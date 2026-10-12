@@ -33,7 +33,7 @@ def main() -> None:
     ap.add_argument("--agent", default="vjepa2_ac")
     ap.add_argument("--task", default="turn_on_the_stove")
     ap.add_argument("--episode", type=int, default=0)
-    ap.add_argument("--grid", type=int, default=15)
+    ap.add_argument("--grid", type=int, default=11)
     ap.add_argument("--execute", type=int, default=10, help="macro steps of the plan executed for the true outcome")
     ap.add_argument("--horizon", type=int, default=10)
     ap.add_argument("--out", default="results/tables")

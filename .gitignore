@@ -8,6 +8,10 @@ __pycache__/
 /.venv_legacy/
 /.python/
 
+# LIBERO checkout (optional location) and its generated path config
+/LIBERO/
+/.libero/
+
 # Regenerated data, feature caches, checkpoints, rollouts and job files (rebuild with the scripts)
 /data/libero_goal4/
 /data/features/

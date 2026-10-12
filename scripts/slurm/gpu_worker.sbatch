@@ -7,10 +7,11 @@
 #SBATCH --time=2-00:00:00
 #SBATCH --output=jobs/logs/worker_%j.out
 # Holds one GPU and runs every shell script dropped into jobs/queue/ in name order. Touch jobs/STOP to exit.
+# Submit from the repository root (mkdir -p jobs/{queue,running,done,logs}). The job inherits the submitting
+# shell's environment, so export LIBERO_ROOT, and TORCH_HOME / HF_HOME if home is not mounted on the GPU nodes.
 set -u
-cd /nas/Selim/selim_sarowar/AML_Assignment_World-Model
+cd "$SLURM_SUBMIT_DIR"
 export MUJOCO_GL=egl PYOPENGL_PLATFORM=egl
-export TORCH_HOME=/nas/Selim/selim_sarowar/hf_cache/torch HF_HOME=/nas/Selim/selim_sarowar/hf_cache
 export PYTHONPATH=$PWD OMP_NUM_THREADS=8
 while [ ! -e jobs/STOP ]; do
   next=$(ls jobs/queue/*.sh 2>/dev/null | head -1)

@@ -20,8 +20,33 @@ from typing import Any
 import numpy as np
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-LIBERO_ROOT = os.environ.get("LIBERO_ROOT", "/nas/Selim/selim_sarowar/GST-VLA/LIBERO")
-os.environ.setdefault("LIBERO_CONFIG_PATH", os.path.join(PROJECT_ROOT, "configs", "libero"))
+LIBERO_ROOT = os.path.abspath(os.environ.get("LIBERO_ROOT", os.path.join(PROJECT_ROOT, "LIBERO")))
+
+
+def _write_libero_config() -> None:
+    """Point LIBERO at ``LIBERO_ROOT`` through a generated config file, unless LIBERO_CONFIG_PATH is set.
+
+    Without a config file LIBERO prompts on stdin at import time, which blocks batch jobs.
+    """
+    if "LIBERO_CONFIG_PATH" in os.environ:
+        return
+    pkg = os.path.join(LIBERO_ROOT, "libero", "libero")
+    paths = {"assets": os.path.join(pkg, "assets"), "bddl_files": os.path.join(pkg, "bddl_files"),
+             "benchmark_root": pkg, "datasets": os.path.join(LIBERO_ROOT, "datasets"),
+             "init_states": os.path.join(pkg, "init_files")}
+    text = "".join(f"{k}: {v}\n" for k, v in paths.items())
+    cfg_dir = os.path.join(PROJECT_ROOT, ".libero")
+    cfg = os.path.join(cfg_dir, "config.yaml")
+    if not os.path.exists(cfg) or open(cfg).read() != text:
+        os.makedirs(cfg_dir, exist_ok=True)
+        tmp = f"{cfg}.{os.getpid()}"
+        with open(tmp, "w") as f:
+            f.write(text)
+        os.replace(tmp, cfg)  # atomic, so concurrent jobs never read a partial file
+    os.environ["LIBERO_CONFIG_PATH"] = cfg_dir
+
+
+_write_libero_config()
 
 
 def _prime_numba() -> None:
