@@ -161,7 +161,7 @@ def training_facts() -> None:
 
 # ----------------------------------------------------------------------------- main table
 def main_table() -> None:
-    rows, pooled = [], {}
+    pooled = {}
     for tag in MAIN + ["bc_resnet18_wrist", "bc_dinov2_frozen", "bc_vjepa2_frozen", "bc_dinov2_finetune"]:
         ev = load_eval(tag)
         if len(ev) < 4:
@@ -617,7 +617,7 @@ def failure_taxonomy() -> None:
             if ev:
                 ds += [contact_distance(e)[-1] for e in ev["episodes_detail"] if e["success"]]
         radius[t] = 1.5 * float(np.median(ds)) if ds else 8.0
-    rows, counts, diag = [], {}, {}
+    counts, diag = {}, {}
     for tag in MAIN:
         c = {"approach": 0, "contact": 0, "partial": 0, "success": 0}
         flags = {"ambiguity": 0, "drift": 0, "n_fail": 0}

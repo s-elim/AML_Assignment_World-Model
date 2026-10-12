@@ -94,7 +94,7 @@ def eval_latent(name: str, demos, dev: str, rng: np.random.RandomState) -> dict:
 @torch.no_grad()
 def eval_tdmpc2(demos, dev: str, rng: np.random.RandomState) -> dict:
     ck = torch.load("results/checkpoints/tdmpc2.pt", map_location="cpu", weights_only=False)
-    cfg, k, S = ck["config"], ck["config"]["frameskip"], ck["config"]["frame_stack"]
+    k, S = ck["config"]["frameskip"], ck["config"]["frame_stack"]
     norm = StateNorm.from_dict(ck["state_norm"])
     m = TDMPC2(num_tasks=4, frames=S)
     m.load_state_dict(ck["model"])

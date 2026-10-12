@@ -23,7 +23,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from src.third_party.vjepa2.models.ac_predictor import vit_ac_predictor
-from src.third_party.vjepa2.models.utils.modules import rotate_queries_or_keys
 
 COND_TOKENS = 2  # action token + state token per frame
 

@@ -32,6 +32,12 @@ report/*.log
 report/*.out
 report/*.toc
 report/*.synctex.gz
+/report/*.zip
+
+# Submitted deliverables: the compiled report and the vector result figures
+!/report/assignment2_report.pdf
+!/results/figures/
+!/results/figures/*.pdf
 
 # Editor and OS files
 .idea/

@@ -50,7 +50,8 @@ results/
   logs/                     training histories (JSON) and run logs
   eval/                     per-episode evaluation records (JSON)
   tables/                   aggregated result tables
-report/                     technical report sources (not tracked)
+  figures/                  result figures of the report (PDF)
+report/assignment2_report.pdf  the technical report (LaTeX sources not tracked)
 ```
 
 ## 1. Setup
@@ -169,7 +170,7 @@ The full configuration of every model is in `configs/model/`. Shared settings:
 
 Seed 0, 10 held-out episodes per task (40 per model, identical across models). Successes per task, pooled success
 rate with a Wilson 95% interval, and mean final goal error. Full tables, paired tests and figures are in the
-report; per-episode records are in `results/eval/<tag>/<task>.json`.
+report (`report/assignment2_report.pdf`); per-episode records are in `results/eval/<tag>/<task>.json`.
 
 | Model | Stove | Bowl-Plate | Push-Plate | Drawer | Success [95% CI] | Goal error (cm) |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: |
