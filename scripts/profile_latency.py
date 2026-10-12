@@ -1,9 +1,10 @@
-"""Isolated latency, throughput and memory profile of every agent (one process, no simulator in the loop).
+"""Isolated latency, throughput and memory profile of every agent, without the simulator in the loop.
 
-Each agent is queried on the first frames of the held-out demonstrations (with the matching goal frame) for
-``--calls`` decisions after ``--warmup`` untimed calls. Reported per agent: mean and standard deviation of the
-encode / plan / extract time per decision, decisions per second, peak GPU memory and parameter counts.
+Each agent is queried on the first frames of the held-out demonstrations, with the matching goal frames, for
+``--calls`` timed decisions after ``--warmup`` untimed ones. Reported per agent: mean and standard deviation of
+the encode, plan and extract time per decision, decisions per second, peak GPU memory and parameter counts.
 
+Usage:
     python scripts/profile_latency.py --out results/tables/latency.json
 """
 

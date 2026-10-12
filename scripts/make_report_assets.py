@@ -1,9 +1,10 @@
-"""Turn evaluation records into the report's tables, figures and number macros.
+"""Turn the evaluation records into the report's tables, figures and number macros.
 
 Reads results/eval/*/<task>.json, results/rollouts/*, results/tables/{prediction_error,latency}.json,
 results/tables/energy_*.json and results/logs/*_history.json. Writes LaTeX snippets to report/generated/ and
-figures (PDF + 300 dpi PNG) to results/figures/. Every number printed in the report comes from here.
+figures (PDF and 300 dpi PNG) to results/figures/. Every number in the report is produced here.
 
+Usage:
     python scripts/make_report_assets.py
 """
 
@@ -734,11 +735,12 @@ def write_everything() -> None:
 
 
 def energy_attribution() -> None:
-    """Does the planning energy track the arm or the object?
+    """Spearman correlation of the planning energy with arm and object error along each planner episode.
 
-    For every planner episode, Spearman correlations along the episode between the energy of the observed frame
-    and (i) the gripper's distance to its goal position (end-effector position in the final state of the
-    held-out demonstration) and (ii) the task error of the manipulated part (object tasks only)."""
+    The energy of every observed frame is correlated with (i) the gripper's distance to its goal position (the
+    end-effector position in the final state of the held-out demonstration) and (ii) the goal error of the
+    manipulated part (object tasks only).
+    """
     from src.data.libero_data import load_demos
 
     goal_ee = {(d.task, d.index): d.state[-1][:3] for d in load_demos() if d.split == "test"}

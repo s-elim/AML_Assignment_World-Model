@@ -1,10 +1,11 @@
-"""Train an action-conditioned latent predictor on cached frozen-encoder features (one model for all 4 tasks).
+"""Train an action-conditioned latent predictor for all four tasks on cached frozen-encoder features.
 
+The final checkpoint is used; there is no checkpoint selection. The held-out loss on the 10 test
+demonstrations per task is logged for monitoring only.
+
+Usage:
     python scripts/train_world_model.py --config configs/model/vjepa2_ac.yaml
     python scripts/train_world_model.py --config configs/model/dino_wm.yaml
-
-No checkpoint selection: the final checkpoint is used. The held-out loss is computed on the 10 test
-demonstrations per task for monitoring only.
 """
 
 from __future__ import annotations

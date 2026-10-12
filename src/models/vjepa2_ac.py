@@ -1,20 +1,19 @@
 """Action-conditioned V-JEPA 2 (V-JEPA 2-AC; Assran et al., 2025) at reduced scale.
 
-The predictor is the released ``VisionTransformerPredictorAC`` (vendored, unmodified): every frame
-contributes one action token, one proprioceptive-state token and the frame's patch tokens, attention is
-block-causal over frames, and positions use 3-D RoPE (time for the two conditioning tokens). Training follows
-``app/vjepa_droid/train.py``: an L1 teacher-forcing loss over the whole clip plus an L1 loss on a two-step
-autoregressive rollout (``auto_steps = 2``), with layer-normalised targets from the frozen encoder.
+The predictor is the released ``VisionTransformerPredictorAC``, vendored unmodified: each frame contributes an
+action token, a proprioceptive-state token and its patch tokens, attention is block-causal over frames, and
+positions use 3-D RoPE. Training follows ``app/vjepa_droid/train.py``: an L1 teacher-forcing loss over the
+clip plus an L1 loss on a two-step autoregressive rollout, against layer-normalised targets from the frozen
+encoder.
 
-Differences from the release, all forced by the CPU budget or by LIBERO: 6 predictor blocks of width 384
+Differences from the release, forced by the compute budget or by LIBERO: 6 predictor blocks of width 384
 (release: 24 blocks of width 1024 on ViT-g features), an 8x8 token grid from a frozen ViT-L, and actions that
-are LIBERO OSC commands rather than measured pose deltas. Because the action is a command, the state token of
-an imagined frame is advanced by a linear map fitted on the training set (``StateIntegrator``) instead of the
-release's exact pose composition.
+are LIBERO OSC commands rather than measured pose deltas. The state token of an imagined frame is therefore
+advanced by a linear map fitted on the training set (``StateIntegrator``) instead of by pose composition.
 
-``rollout`` evaluates the predictor incrementally with a key/value cache. Because attention is block-causal,
-earlier frames never see later ones, so caching their keys and values is exact (verified against the full
-forward in ``tests/test_vjepa2_ac.py``) and reduces the cost of an H-step rollout from O(H^2) to O(H) frames.
+``rollout`` caches keys and values across steps. Block-causal attention makes earlier frames independent of
+later ones, so the cache is exact (checked against the full re-forward in ``tests/test_vjepa2_ac.py``) and an
+H-step rollout processes O(H) frames instead of O(H^2).
 """
 
 from __future__ import annotations

@@ -1,7 +1,8 @@
-"""Encode every agent-view frame of the dataset with a frozen encoder and cache the 8x8 token grids.
+"""Cache the 8x8 token grid of a frozen encoder for every frame of the dataset.
 
+Usage:
     python scripts/encode_features.py --encoder vjepa2   # V-JEPA 2 ViT-L/16, (L, 64, 1024) per demo
-    python scripts/encode_features.py --encoder dinov2   # DINOv2 ViT-S/14,   (L, 64, 384) per demo
+    python scripts/encode_features.py --encoder dinov2   # DINOv2 ViT-S/14, (L, 64, 384) per demo
 """
 
 from __future__ import annotations

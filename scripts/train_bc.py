@@ -1,5 +1,6 @@
-"""Train a behaviour-cloning policy (one model for all four tasks) by Gaussian negative log-likelihood.
+"""Train one behaviour-cloning policy for all four tasks by Gaussian negative log-likelihood.
 
+Usage:
     python scripts/train_bc.py --config configs/model/bc_resnet18.yaml
 """
 

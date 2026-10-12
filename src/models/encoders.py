@@ -1,17 +1,16 @@
 """Frozen pretrained visual encoders shared by the two latent world models.
 
-Both encoders map a 128x128 RGB frame to an 8x8 grid of patch tokens so that the two latent world models
-see the same token budget and differ only in the representation and in their own predictor design:
+Both encoders map a 128x128 RGB frame to an 8x8 grid of patch tokens, so the two world models see the same
+token budget and differ only in representation and predictor:
 
-* V-JEPA 2 ViT-L/16 (Assran et al., 2025; 304M parameters, released ``vitl.pt`` target encoder). Frames are
-  upsampled to the 256x256 pretraining resolution and duplicated into one two-frame tubelet, exactly as the
-  V-JEPA 2-AC training code encodes single frames (``app/vjepa_droid/train.py``), giving 16x16 tokens of
-  width 1024.
-* DINOv2 ViT-S/14 (Oquab et al., 2024; 21.6M parameters, ``vit_small_patch14_dinov2.lvd142m``), the encoder
-  used by DINO-WM. Frames are upsampled to 224x224, giving 16x16 patch tokens of width 384 (CLS dropped).
+* V-JEPA 2 ViT-L/16 (Assran et al., 2025; released ``vitl.pt`` target encoder, 304M parameters). Frames are
+  upsampled to 256x256 and duplicated into one two-frame tubelet, as the V-JEPA 2-AC training code encodes
+  single frames, giving 16x16 tokens of width 1024.
+* DINOv2 ViT-S/14 (Oquab et al., 2024; ``vit_small_patch14_dinov2.lvd142m``, 21.6M parameters), the DINO-WM
+  encoder. Frames are upsampled to 224x224, giving 16x16 patch tokens of width 384 (CLS token dropped).
 
-The 16x16 grids are average-pooled 2x2 to 8x8 (64 tokens) to keep CEM planning affordable on CPU, and every
-token is layer-normalised without affine parameters, as V-JEPA 2-AC does (``normalize_reps``).
+Both 16x16 grids are average-pooled 2x2 to 8x8 to keep CEM planning affordable, and every token is
+layer-normalised without affine parameters, as in V-JEPA 2-AC (``normalize_reps``).
 """
 
 from __future__ import annotations

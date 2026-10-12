@@ -5,10 +5,7 @@ import torch
 
 
 def set_seed(seed: int = 42) -> None:
-    """
-    Establish deterministic seeding across Python, NumPy, PyTorch, and CUDA.
-    Enforces deterministic algorithm behavior and disables benchmark non-determinism.
-    """
+    """Seed Python, NumPy and PyTorch; on CUDA, also make cuDNN deterministic and disable its autotuner."""
     random.seed(seed)
     os.environ["PYTHONHASHSEED"] = str(seed)
     np.random.seed(seed)

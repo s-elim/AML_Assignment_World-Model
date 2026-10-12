@@ -1,15 +1,15 @@
 """Build the four-task LIBERO-Goal dataset used by every model in this study.
 
-For each task the 50 human demonstrations released with LIBERO are read from the official hdf5 file. The
-stored MuJoCo states are replayed through the evaluation renderer so that training images and evaluation
-images come from the same renderer (the released frames differ from a re-render of the same state by 3 to
-5 intensity levels on average, measured on 2026-10-12). Per control step the output holds the agent-view
-and wrist RGB images (128x128), the 7-D proprioceptive state, the 7-D action that FOLLOWS the observation,
-and the sim state, plus a fixed 40/10 train/test split of demonstration indices.
+The 50 human demonstrations per task are read from LIBERO's hdf5 files, and their stored MuJoCo states are
+re-rendered with the evaluation renderer so that training and evaluation images come from the same renderer.
+Each control step stores the agent-view and wrist RGB frames (128x128), the 7-D proprioceptive state, the
+7-D action that follows the observation and the simulator state. A fixed 40/10 train/test split of the
+demonstrations (seed 0) is written next to them.
 
-LIBERO's hdf5 convention: ``states[i]`` precedes ``actions[i]`` and ``obs[i]`` is recorded after it, so
-``obs[i]`` corresponds to ``states[i + 1]``. This script re-aligns everything to (observation, next action).
+LIBERO records ``obs[i]`` after executing ``actions[i]`` from ``states[i]``, so ``obs[i]`` matches
+``states[i + 1]``. The output is re-aligned to (observation, next action) pairs.
 
+Usage:
     python scripts/build_libero_dataset.py --task turn_on_the_stove --out data/libero_goal4
 """
 

@@ -1,14 +1,13 @@
-"""DINO-WM (Zhou, Pan, LeCun and Pinto, ICML 2025) at reduced scale.
+"""DINO-WM (Zhou et al., ICML 2025) at reduced scale.
 
-Design kept from the paper and its released code: frozen DINOv2 ViT-S/14 patch tokens, a 10-D action
-embedding and a 10-D proprioception embedding that are tiled over the patches and concatenated to every patch
-token along the feature axis, a ViT predictor with a learned positional embedding and a frame-level causal
-mask over a history of ``num_hist`` frames, teacher-forced next-frame prediction with an MSE loss on the
-visual and proprioceptive parts of the next frame's embedding (targets detached), and an action input that
-concatenates the ``frameskip`` primitive actions of one macro step.
+Kept from the paper and its released code: frozen DINOv2 ViT-S/14 patch tokens; 10-D action and
+proprioception embeddings tiled over the patches and concatenated to every patch token; a ViT predictor with
+learned positional embeddings and a frame-causal mask over ``num_hist`` frames; teacher-forced next-frame
+prediction with an MSE loss on the visual and proprioceptive parts of the embedding (detached targets); and an
+action input that concatenates the ``frameskip`` primitive actions of one macro step.
 
-Reduced scale for CPU/GPU budget parity with V-JEPA 2-AC: 6 blocks, 6 heads of width 64, MLP width 1536,
-8x8 tokens per frame (release: 16 heads, MLP 2048, 16x16 tokens).
+Reduced to the size of the V-JEPA 2-AC predictor: 6 blocks, 6 heads of width 64, MLP width 1536 and 8x8 tokens
+per frame (release: 16 heads, MLP 2048, 16x16 tokens).
 """
 
 from __future__ import annotations

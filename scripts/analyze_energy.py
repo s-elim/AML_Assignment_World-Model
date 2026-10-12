@@ -1,12 +1,12 @@
-"""Planning-energy landscape versus true outcome over a 2-D slice of action space.
+"""Planning energy versus executed outcome over a 2-D slice of the action space.
 
-At the first decision of a held-out episode, the first planned macro action is perturbed over a grid of
-(dx, dy) commands while the rest of the CEM plan is kept. For each grid point the script records
-(i) the latent planning energy predicted by the world model and (ii) the true goal error obtained by
-executing the same plan open loop in the simulator. The CEM mean of the first action at every iteration is
-saved so the optimiser's path can be drawn over both surfaces.
+At the first decision of a held-out episode, the (dx, dy) command of the first planned macro action is swept
+over a grid while the rest of the CEM plan stays fixed. Each grid point records the energy the world model
+predicts and the goal error obtained by executing the same plan in the simulator. The CEM mean of the first
+action is saved at every iteration so the optimiser's path can be drawn over both surfaces.
 
-    python scripts/analyze_energy.py --agent vjepa2_ac --task turn_on_the_stove --episode 0 --grid 15
+Usage:
+    python scripts/analyze_energy.py --agent vjepa2_ac --task turn_on_the_stove --episode 0 --grid 11
 """
 
 from __future__ import annotations

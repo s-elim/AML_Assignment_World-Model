@@ -1,9 +1,10 @@
 """Closed-loop evaluation on the 10 held-out demonstrations of each task (seed 0).
 
-Each episode starts from the first MuJoCo state of a held-out demonstration; the goal frame is rendered from
-that demonstration's final (successful) state. The episode ends on LIBERO's BDDL success predicate or after
-300 control steps (60 macro steps), the LIBERO-Goal limit used by OpenVLA's evaluation.
+Each episode starts from the first MuJoCo state of a held-out demonstration, and the goal frame is rendered
+from its final, successful state. An episode ends on LIBERO's BDDL success predicate or after 300 control
+steps (60 macro steps), the LIBERO-Goal limit used in OpenVLA's evaluation.
 
+Usage:
     python scripts/evaluate.py --agent vjepa2_ac --tag vjepa2_ac
     python scripts/evaluate.py --agent vjepa2_ac --tag abl_H5 --tasks turn_on_the_stove --horizon 5
 """

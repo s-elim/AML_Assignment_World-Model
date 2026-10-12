@@ -1,5 +1,6 @@
 """Train TD-MPC2 offline on the demonstrations with LIBERO's sparse success reward.
 
+Usage:
     python scripts/train_tdmpc2.py --config configs/model/tdmpc2.yaml
 """
 

@@ -1,1 +1,1 @@
-"""Seeding, statistics and I/O helpers."""
+"""Seeding utilities."""

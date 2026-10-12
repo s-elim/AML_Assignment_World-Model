@@ -1,16 +1,12 @@
-"""Open-loop multi-step prediction error on the held-out demonstrations (dynamics fidelity and controllability).
+"""Open-loop multi-step prediction error of the world models on the held-out demonstrations.
 
-For every macro start step of every held-out demonstration (offset 0, stride 5) each world model rolls out
-k = 1..10 macro steps under the demonstrated macro actions, exactly as at planning time (V-JEPA 2-AC advances
-its state token with the fitted integrator, DINO-WM keeps its own predicted proprioception). Reported per k:
+From every macro step of every held-out demonstration, each model rolls out k = 1..10 macro steps under the
+demonstrated actions, as it does at planning time. For each k the script reports the L1 and MSE between
+imagined and encoded tokens and their cosine similarity, the L1 and MSE of the copy-last baseline
+(z_{t+k} = z_t), and the same metrics when the actions are taken from a randomly permuted window (action
+shuffle). TD-MPC2 is scored in its own SimNorm latent space.
 
-* L1 and MSE between imagined and encoded tokens, and the cosine similarity;
-* the same error for the copy-last baseline (predict z_{t+k} = z_t), and the ratio model / copy-last;
-* the error when the action sequence is replaced by the actions of a different held-out clip
-  (action-shuffle), whose gap to the true-action error measures how much the model uses its actions.
-
-TD-MPC2 is evaluated in its own SimNorm latent space against its encoder's latents (same ratios).
-
+Usage:
     python scripts/analyze_prediction.py --out results/tables/prediction_error.json
 """
 
