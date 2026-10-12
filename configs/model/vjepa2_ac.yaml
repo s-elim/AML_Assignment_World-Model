@@ -1,0 +1,15 @@
+model_type: vjepa2_ac
+img_size: 224
+patch_size: 16
+embed_dim: 128
+predictor_embed_dim: 128
+predictor_depth: 4
+action_dim: 4
+learning_rate: 1e-4
+weight_decay: 0.05
+batch_size: 16
+sequence_length: 4
+epochs: 10
+optimizer: adamw
+scheduler: cosine
+warmup_epochs: 2

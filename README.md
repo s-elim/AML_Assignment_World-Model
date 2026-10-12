@@ -272,18 +272,35 @@ In accordance with Assignment 2 specifications, performance is quantified across
 2. **Latent Prediction Error (MSE)**: Mean squared error between predicted latent token trajectories $\hat{z}_{t+k}$ and ground-truth encoded frames $s_\phi(o_{t+k})$:
    $$\text{MSE}_k = \frac{1}{N \cdot D} \sum_{i=1}^N \| \hat{z}_{t+k}^{(i)} - z_{t+k}^{(i)} \|_2^2$$
 3. **Goal Tracking Error (cm)**: Final Euclidean distance between object position and target coordinates at episode termination.
-4. **Planning Latency (ms/step)**: Wall-clock computation time required for CEM trajectory optimization per execution step.
+### Quantitative Benchmark Results (Seed 0, 10 Rollouts)
 
-### Target Comparative Results Template
+| Model Paradigm | Reach (SR %) | Push (SR %) | Pick-Place (SR %) | Drawer-Open (SR %) | Mean SR (%) | Goal Dist (cm) | Latent MSE ($k=5$) | Latency (ms) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Direct BC Policy** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | **12.68** | N/A | **1.9** |
+| **TD-MPC2** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 29.36 | 0.0023 | 3.7 |
+| **DINO-WM** | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | 24.05 | **0.0022** | 11.1 |
+| **V-JEPA 2-AC (Ours)**| **10.0%** | 0.0% | 0.0% | 0.0% | **2.5%** | 20.22 | 0.0050 | 136.8 |
 
-| Model | Reach (SR %) | Push (SR %) | Pick-Place (SR %) | Drawer-Open (SR %) | Latent MSE ($k=5$) | Latency (ms) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Direct BC Policy** | -- | -- | -- | -- | N/A | < 10 |
-| **TD-MPC2** | -- | -- | -- | -- | -- | ~45 |
-| **DINO-WM** | -- | -- | -- | -- | -- | ~85 |
-| **V-JEPA 2-AC (Ours)**| -- | -- | -- | -- | -- | ~65 |
+*Evaluation Protocol: Fixed seed 0 across 10 evaluation rollout episodes per task under identical simulation conditions.*
 
-*Note: All values will report the mean and standard deviation over 3 independent random seeds (seeds 42, 100, 2026).*
+### Execution and Reproduction
+
+1. **Closed-Loop Latent MPC Evaluation**:
+```bash
+LD_LIBRARY_PATH=/home/selim/.local/share/mesa24-osmesa/lib:/home/selim/.local/share/claude-prism/app/usr/lib:$LD_LIBRARY_PATH MUJOCO_GL=osmesa \
+.venv/bin/python scripts/evaluate_latent_mpc.py --seeds 0 --num_episodes 10
+```
+
+2. **Generate Publication Figures and LaTeX Tables**:
+```bash
+.venv/bin/python scripts/generate_comparative_plots.py
+```
+
+3. **Compile Technical Report**:
+```bash
+cd report && tectonic assignment2_report.tex
+```
+
 
 ---
 

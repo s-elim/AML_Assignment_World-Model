@@ -1,0 +1,12 @@
+horizon: 5
+num_samples: 200
+num_iterations: 8
+elite_fraction: 0.1
+momentum: 0.2
+action_dim: 4
+action_low: -0.05
+action_high: 0.05
+cost_metric: cosine
+num_eval_episodes: 25
+seeds: [42, 100, 2026]
+max_episode_steps: 100

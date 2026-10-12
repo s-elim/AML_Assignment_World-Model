@@ -1,0 +1,12 @@
+model_type: tdmpc2
+img_size: 224
+latent_dim: 64
+action_dim: 4
+learning_rate: 3e-4
+weight_decay: 0.01
+batch_size: 16
+sequence_length: 4
+epochs: 10
+optimizer: adamw
+scheduler: cosine
+warmup_epochs: 2
